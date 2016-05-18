@@ -39,6 +39,12 @@
     <Compile Include="Screens\MainScreen\Code-behind\MainScreen.cs" />
     <Compile Include="Screens\MainScreen\Code-behind\PeopleListViewCell.cs" />
     <Compile Include="Shared\Person.cs" />
+    <Compile Include="Screens\MainScreen\XAML\MainScreenXAML.xaml.cs">
+      <DependentUpon>MainScreenXAML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\MainScreen\XAML\MainScreenViewCellContent.xaml.cs">
+      <DependentUpon>MainScreenViewCellContent.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -54,6 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Screens\Login\XAML\LoginScreenXAML.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MainScreen\XAML\MainScreenXAML.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\MainScreen\XAML\MainScreenViewCellContent.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

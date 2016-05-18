@@ -39,7 +39,7 @@ namespace XForms
 
 			var addItem = new ToolbarItem
 			{
-				Icon = Device.OnPlatform<string>(string.Empty, "plus" ,string.Empty),
+				Icon = Device.OnPlatform<string>(string.Empty, "plus", string.Empty),
 				Text = "Add",
 				Command = new Command(OnAddItem)
 			};
@@ -63,7 +63,7 @@ namespace XForms
 			};
 
 			listView.ItemTapped += async(sender, e) => {
-
+				
 				if (listView.SelectedItem == null)
 					return;
 				else
