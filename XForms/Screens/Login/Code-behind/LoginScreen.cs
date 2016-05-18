@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using System.Threading.Tasks;
 
-namespace XForms
+namespace XForms.CodeBehind
 {
 	public class LoginScreen : ContentPage
 	{

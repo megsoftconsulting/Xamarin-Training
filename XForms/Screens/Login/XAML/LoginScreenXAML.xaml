@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XForms.LoginScreenXAML">
+	<ContentPage.Content>
+
+		<StackLayout
+			Padding="20,40">
+
+			<StackLayout
+				VerticalOptions="CenterAndExpand">
+						
+				<Image
+					Source="megsoft"
+					HorizontalOptions="CenterAndExpand"
+					HeightRequest="200"
+					Aspect="AspectFit"/>
+
+				<Label
+					Text="Megsoft Consulting"
+					TextColor="#13a3e2"
+					HorizontalOptions="CenterAndExpand"
+					FontAttributes="Bold"
+					FontSize="32"/>
+
+				<Label
+					Text="We make your dream come true"
+					HorizontalOptions="CenterAndExpand"
+					TextColor="Gray"/>
+
+			</StackLayout>
+
+			<StackLayout
+				Spacing="12"
+				VerticalOptions="End">
+
+				<StackLayout>
+
+				<StackLayout
+					Orientation="Horizontal">
+
+					<Button
+						HorizontalOptions="CenterAndExpand"
+						BackgroundColor="#3b5998"
+						BorderRadius="4"
+						Text="Login using Facebook"
+						WidthRequest="200"
+						TextColor = "White"/>
+
+				</StackLayout>
+
+				</StackLayout>
+
+				<Label
+					Text="Demo 1.0"
+					TextColor="Gray"
+					FontSize="10"
+					HorizontalOptions="CenterAndExpand"/>
+
+			</StackLayout>
+
+		</StackLayout>
+		
+
+
+	</ContentPage.Content>
+</ContentPage>
