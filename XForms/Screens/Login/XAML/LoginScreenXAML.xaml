@@ -43,7 +43,8 @@
 						BorderRadius="4"
 						Text="Login using Facebook"
 						WidthRequest="200"
-						TextColor = "White"/>
+						TextColor = "White"
+						Clicked="OnNavigateTo"/>
 
 				</StackLayout>
 

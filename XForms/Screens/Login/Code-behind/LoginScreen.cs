@@ -64,7 +64,8 @@ namespace XForms.CodeBehind
 								BorderRadius = 4,
 								Text = "Login using Facebook",
 								WidthRequest = 200,
-								TextColor = Color.White
+								TextColor = Color.White,
+								Command = new Command(OnNavigateTo)
 							}
 						}
 					}
@@ -99,6 +100,11 @@ namespace XForms.CodeBehind
 					secondLayout
 				}
 			};
+		}
+
+		async void OnNavigateTo ()
+		{
+			await App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new MainScreen()));
 		}
 	}
 }

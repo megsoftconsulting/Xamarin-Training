@@ -81,6 +81,12 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.2.2.0.31\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.Android">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.4.1\lib\MonoAndroid10\ImageCircle.Forms.Plugin.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugins.Forms.ImageCircle.1.4.1\lib\MonoAndroid10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XForms\XForms.csproj">
@@ -112,6 +118,7 @@
     <AndroidResource Include="Resources\values\style.axml" />
     <AndroidResource Include="Resources\drawable\facebook.png" />
     <AndroidResource Include="Resources\drawable\megsoft.png" />
+    <AndroidResource Include="Resources\drawable\plus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

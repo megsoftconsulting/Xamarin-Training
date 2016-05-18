@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using XForms.CodeBehind;
 
 namespace XForms
 {
@@ -7,7 +8,7 @@ namespace XForms
 	{
 		public App ()
 		{
-			MainPage = new XForms.LoginScreenXAML();
+			MainPage = new LoginScreen();
 		}
 
 		protected override void OnStart ()

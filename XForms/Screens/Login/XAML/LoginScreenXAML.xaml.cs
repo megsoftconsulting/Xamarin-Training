@@ -11,5 +11,10 @@ namespace XForms
 		{
 			InitializeComponent ();
 		}
+
+		public async void OnNavigateTo (object sender, EventArgs e)
+		{
+			await App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new MainScreen()));
+		}
 	}
 }
