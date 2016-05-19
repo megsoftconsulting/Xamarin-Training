@@ -23,7 +23,7 @@ namespace XForms.CodeBehind
 
 			var title = new Label
 			{
-				Text = "Megsoft Consulting",
+				Text = "Social App",
 				TextColor = Color.FromHex("13a3e2"),
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				FontAttributes = FontAttributes.Bold,
@@ -32,7 +32,7 @@ namespace XForms.CodeBehind
 
 			var subtitle = new Label
 			{
-				Text = "We make your dream come true",
+				Text = "Be social. Meet new people",
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				TextColor = Color.Gray
 			};

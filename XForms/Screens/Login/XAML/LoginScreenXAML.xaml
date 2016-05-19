@@ -15,14 +15,14 @@
 					Aspect="AspectFit"/>
 
 				<Label
-					Text="Megsoft Consulting"
+					Text="Social App"
 					TextColor="#13a3e2"
 					HorizontalOptions="CenterAndExpand"
 					FontAttributes="Bold"
 					FontSize="32"/>
 
 				<Label
-					Text="We make your dream come true"
+					Text="Be social. Meet new people"
 					HorizontalOptions="CenterAndExpand"
 					TextColor="Gray"/>
 
