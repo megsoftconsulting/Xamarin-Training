@@ -39,7 +39,7 @@ namespace XForms
 
 			var info = new Label
 			{
-				Text = "A color will be automatically assigned to you",
+				Text = "A color will automatically be assigned to you",
 				TextColor = Color.Gray,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				FontSize = 12

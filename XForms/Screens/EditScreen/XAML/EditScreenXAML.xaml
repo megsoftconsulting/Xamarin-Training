@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XForms.EditScreenXAML">
+	<ContentPage.Content>
+
+	<StackLayout
+		Spacing="16">
+
+		<StackLayout
+			Padding="16,30"
+			VerticalOptions="FillAndExpand">
+
+			<StackLayout>
+				
+				<Label
+					Text="Luis"
+					HorizontalOptions="StartAndExpand"
+					FontSize="18"/>
+
+				<Entry
+					x:Name="UserName"
+					HorizontalOptions="FillAndExpand"
+					Placeholder="Pick a username"
+					PlaceholderColor="Gray"
+					BackgroundColor="Transparent"
+					Margin="10"
+					WidthRequest="100"/>
+
+			</StackLayout>
+
+			<StackLayout>
+				
+				<Label
+					Text="Hey Xamarinos"
+					HorizontalOptions="StartAndExpand"
+					FontSize="18"/>
+
+				<Entry
+					x:Name="Subtitle"
+					HorizontalOptions="FillAndExpand"
+					Placeholder="Pick a username"
+					PlaceholderColor="Gray"
+					BackgroundColor="Transparent"
+					Margin="10"
+					WidthRequest="100"/>
+
+			</StackLayout>
+
+		</StackLayout>
+
+		<Label
+			Text="A color will be automatically assigned to you"
+			TextColor="Gray"
+			HorizontalOptions="CenterAndExpand"
+			FontSize="12"/>
+
+		<StackLayout
+			VerticalOptions="End"
+			BackgroundColor="#15dbab"
+			Padding="20">
+
+			<Button
+				x:Name="Button"
+				BackgroundColor="Transparent"
+				BorderColor="Transparent"
+				Text="Save"
+				TextColor="White"
+				FontSize="20"
+				FontAttributes="Bold"
+				HorizontalOptions="CenterAndExpand"
+				VerticalOptions="CenterAndExpand"/>
+
+		</StackLayout>
+
+	</StackLayout>
+
+	</ContentPage.Content>
+</ContentPage>

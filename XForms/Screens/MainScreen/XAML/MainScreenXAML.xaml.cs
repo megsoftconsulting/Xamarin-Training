@@ -73,7 +73,7 @@ namespace XForms
 
 			if(selectedItem != null)
 			{
-				Navigation.PushAsync(new EditScreen((Person) selectedItem, ref _data));
+				Navigation.PushAsync(new EditScreenXAML((Person) selectedItem, ref _data));
 			}
 		}
 

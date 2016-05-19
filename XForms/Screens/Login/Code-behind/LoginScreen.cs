@@ -104,7 +104,7 @@ namespace XForms.CodeBehind
 
 		async void OnNavigateTo ()
 		{
-			await App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new MainScreenXAML()));
+			await App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new MainScreen()));
 		}
 	}
 }
