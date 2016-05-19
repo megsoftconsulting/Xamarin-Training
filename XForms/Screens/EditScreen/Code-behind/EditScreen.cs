@@ -98,7 +98,7 @@ namespace XForms
 				await DisplayAlert("Error", "Please ensure that you enter a Username and Subtitle", "Ok");
 			else
 			{
-				var update = _collection.FirstOrDefault(x => x.UserName == _person.UserName);
+				var update = _collection.FirstOrDefault(x => x.UniqueIdentifier == _person.UniqueIdentifier);
 
 				if(update != null)
 				{

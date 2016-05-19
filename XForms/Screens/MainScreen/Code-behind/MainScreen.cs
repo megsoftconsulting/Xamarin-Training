@@ -23,12 +23,14 @@ namespace XForms
 				new Person {
 					UserName = "Luis Nunez",
 					Subtitle = "Hey guys",
-					Color = Color.Aqua
+					Color = Color.Aqua,
+					UniqueIdentifier = Guid.NewGuid().ToString()
 				},
 				new Person {
 					UserName = "Pinedax",
 					Subtitle = "This listview is lit",
-					Color = Color.Maroon
+					Color = Color.Maroon,
+					UniqueIdentifier = Guid.NewGuid().ToString()
 				}
 			};
 
@@ -107,7 +109,8 @@ namespace XForms
 			{
 				UserName = "No name",
 				Subtitle = "Edit me",
-				Color = Color.Black
+				Color = Color.Black,
+				UniqueIdentifier = Guid.NewGuid().ToString()
 			};
 
 			_data.Add(newItem);

@@ -11,6 +11,8 @@ namespace XForms
 		public string UserName { get; set; }
 
 		public string Subtitle { get; set; }
+
+		public string UniqueIdentifier { get; set; }
 	}
 }
 
