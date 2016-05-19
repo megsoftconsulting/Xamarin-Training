@@ -8,7 +8,7 @@ namespace XForms
 {
 	public class MainScreen : ContentPage
 	{
-		ObservableCollection<Person> _data;
+		public static ObservableCollection<Person> _data;
 
 		public MainScreen ()
 		{
@@ -31,6 +31,7 @@ namespace XForms
 					Color = Color.Maroon
 				}
 			};
+
 		}
 
 		View CreateContent ()
@@ -62,13 +63,13 @@ namespace XForms
 				ItemsSource = _data
 			};
 
-			listView.ItemTapped += async(sender, e) => {
+			listView.ItemTapped += (sender, e) => {
 				
 				if (listView.SelectedItem == null)
 					return;
 				else
 				{
-					await PersonSelected((Person) e.Item);
+					//Handle selection here
 				}
 				listView.SelectedItem = null;
 			};
@@ -90,7 +91,14 @@ namespace XForms
 
 		void OnEditUser (object obj)
 		{
-			
+			var menuItem = (MenuItem) obj;
+
+			var selectedItem = (Person) menuItem.CommandParameter;
+
+			if(selectedItem != null)
+			{
+				Navigation.PushAsync(new EditScreen((Person) selectedItem, ref _data));
+			}
 		}
 
 		void OnAddItem ()
@@ -103,11 +111,6 @@ namespace XForms
 			};
 
 			_data.Add(newItem);
-		}
-
-		async Task PersonSelected (Person person)
-		{
-			await Navigation.PushAsync(new MainScreen());
 		}
 	}
 }

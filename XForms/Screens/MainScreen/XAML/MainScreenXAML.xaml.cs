@@ -40,20 +40,15 @@ namespace XForms
 			AddItem.Command = new Command(OnAddItem);
 		}
 
-		public async void OnItemTapped(object sender, ItemTappedEventArgs e)
+		public void OnItemTapped(object sender, ItemTappedEventArgs e)
 		{
 			if (ListView.SelectedItem == null)
 				return;
 			else
 			{
-				await PersonSelected((Person) e.Item);
+				//Handle selection here
 			}
 			ListView.SelectedItem = null;
-		}
-
-		async Task PersonSelected (Person person)
-		{
-			await Navigation.PushAsync(new MainScreenXAML());
 		}
 
 		void OnDeleteUser (object obj)
@@ -70,7 +65,14 @@ namespace XForms
 
 		void OnEditUser (object obj)
 		{
+			var menuItem = (MenuItem) obj;
 
+			var selectedItem = (Person) menuItem.CommandParameter;
+
+			if(selectedItem != null)
+			{
+				Navigation.PushAsync(new EditScreen((Person) selectedItem, ref _data));
+			}
 		}
 
 		void OnAddItem ()
