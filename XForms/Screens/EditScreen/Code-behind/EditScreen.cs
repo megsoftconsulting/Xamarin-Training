@@ -29,6 +29,8 @@ namespace XForms
 			_userName.Text = person.UserName;
 
 			_subtitle.Text = person.Subtitle;
+
+			Title = "Edit";
 		}
 
 		View CreatePageContent ()
