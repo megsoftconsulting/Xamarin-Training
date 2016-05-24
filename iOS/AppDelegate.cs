@@ -16,7 +16,7 @@ namespace XForms.iOS
 
 			ImageCircle.Forms.Plugin.iOS.ImageCircleRenderer.Init();
 
-			LoadApplication (new App ());
+			LoadApplication (new XFormsApp());
 
 			return base.FinishedLaunching (app, options);
 		}

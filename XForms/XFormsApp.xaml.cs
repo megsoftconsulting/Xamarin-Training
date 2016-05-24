@@ -10,6 +10,8 @@ namespace XForms
 		public XFormsApp ()
 		{
 			InitializeComponent ();
+
+            MainPage = new NavigationPage(new MainScreenXaml());
 		}
 	}
 }

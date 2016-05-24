@@ -3,91 +3,61 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using XForms.Views;
 
 namespace XForms
 {
-	public partial class MainScreenXAML : ContentPage
+	public partial class MainScreenXaml : ContentPage
 	{
-		ObservableCollection<Person> _data;
+	    public MainScreenXaml()
+	    {
+	        InitializeComponent();
 
-		public MainScreenXAML ()
-		{
-			_data = new ObservableCollection<Person> {
-				new Person {
-					UserName = "Luis Nunez",
-					Subtitle = "Hey guys",
-					Color = Color.Aqua,
-					UniqueIdentifier = Guid.NewGuid().ToString()
-				},
-				new Person {
-					UserName = "Pinedax",
-					Subtitle = "This listview is lit",
-					Color = Color.Maroon,
-					UniqueIdentifier = Guid.NewGuid().ToString()
-				}
-			};
+            var viewModel = new MainViewModel();
 
-			InitializeComponent ();
+            BindingContext = viewModel;
 
-			ListView.ItemsSource = _data;
+            viewModel.PropertyChanged += OnPropertyChanged;
 
-			ListView.ItemTemplate = new DataTemplate(()=>{
-				return new MainScreenViewCellContent
-				{
-					DeleteCommand = new Command(OnDeleteUser),
-					EditCommand = new Command(OnEditUser)
-				};
-			});
+            viewModel.Init();
+        }
 
-			AddItem.Command = new Command(OnAddItem);
-		}
+        void OnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case "Tabs":
+                    {
+                        var tab = sender as MainViewModel;
 
-		public void OnItemTapped(object sender, ItemTappedEventArgs e)
-		{
-			if (ListView.SelectedItem == null)
-				return;
-			else
-			{
-				//Handle selection here
-			}
-			ListView.SelectedItem = null;
-		}
+                        if (tab != null)
+                        {
+                            var list = tab.Tabs;
 
-		void OnDeleteUser (object obj)
-		{
-			var menuItem = (MenuItem) obj;
+                            if (list != null && list.Count > 0)
+                            {
 
-			var selectedItem = (Person) menuItem.CommandParameter;
+                                var items = 0;
 
-			if(selectedItem != null)
-			{
-				_data.Remove(selectedItem);
-			}
-		}
+                                var quantity = list.Count / 2;
 
-		void OnEditUser (object obj)
-		{
-			var menuItem = (MenuItem) obj;
+                                var rows = Grid.RowDefinitions.Count;
 
-			var selectedItem = (Person) menuItem.CommandParameter;
-
-			if(selectedItem != null)
-			{
-				Navigation.PushAsync(new EditScreenXAML((Person) selectedItem, ref _data));
-			}
-		}
-
-		void OnAddItem ()
-		{
-			var newItem = new Person
-			{
-				UserName = "No name",
-				Subtitle = "Edit me",
-				Color = Color.Black,
-				UniqueIdentifier = Guid.NewGuid().ToString()
-			};
-
-			_data.Add(newItem);
-		}
-	}
+                                for (var column = 0; column < quantity; column++)
+                                {
+                                    for (var row = 0; row < rows; row++)
+                                    {
+                                        Grid.Children.Add(new InfoCard
+                                        {
+                                            BindingContext = list[items++]
+                                        }, row, column);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+    }
 }

@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using XForms.Views;
 
 namespace XForms
 {
@@ -48,13 +49,10 @@ namespace XForms
 							{
 								for (var row = 0; row < rows; row++)
 								{
-									var createdGrid = CreateView();
-
-									var context = list[items++];
-
-									createdGrid.BindingContext = context;
-
-									_grid.Children.Add(createdGrid, row, column);
+									_grid.Children.Add(new InfoCard
+                                    {
+                                        BindingContext = list[items++]
+                                    }, row, column);
 								}
 							}
 						}
@@ -135,50 +133,6 @@ namespace XForms
 					_grid
 				}
 			};
-		}
-
-		View CreateView ()
-		{
-			var icon = new Image
-			{
-				WidthRequest = 48,
-				HeightRequest = 48,
-				Aspect = Aspect.AspectFit,
-				HorizontalOptions = LayoutOptions.CenterAndExpand
-			};
-
-			icon.SetBinding<Tab>(Image.SourceProperty, m => m.Icon);
-
-			var label = new Label
-			{
-				TextColor = Color.Gray,
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				FontSize = 18
-			};
-
-			label.SetBinding<Tab>(Label.TextProperty, m => m.Title);
-
-			var layout = new StackLayout
-			{
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				Children = 
-				{
-					new StackLayout
-					{
-						Spacing = 14,
-						VerticalOptions = LayoutOptions.CenterAndExpand,
-						Children = 
-						{
-							icon,
-							label
-						}
-					}
-				}
-			};
-
-			layout.SetBinding<Tab>(StackLayout.BackgroundColorProperty, m => m.Background);
-
-			return layout;
 		}
 	}
 }
