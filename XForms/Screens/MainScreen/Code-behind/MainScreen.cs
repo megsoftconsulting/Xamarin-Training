@@ -8,112 +8,105 @@ namespace XForms
 {
 	public class MainScreen : ContentPage
 	{
-		public static ObservableCollection<Person> _data;
-
 		public MainScreen ()
 		{
-			Init();
+			Content = CreatePageContent();
 
-			Content = CreateContent();
+			BindingContext = new MainViewModel();
 		}
 
-		void Init ()
+		View CreatePageContent ()
 		{
-			_data = new ObservableCollection<Person> {
-				new Person {
-					UserName = "Luis Nunez",
-					Subtitle = "Hey guys",
-					Color = Color.Aqua,
-					UniqueIdentifier = Guid.NewGuid().ToString()
-				},
-				new Person {
-					UserName = "Pinedax",
-					Subtitle = "This listview is lit",
-					Color = Color.Maroon,
-					UniqueIdentifier = Guid.NewGuid().ToString()
-				}
-			};
-
-		}
-
-		View CreateContent ()
-		{
-			Title = "Main";
-
-			var addItem = new ToolbarItem
+			var availableAmountLabel = new Label
 			{
-				Icon = Device.OnPlatform<string>(string.Empty, "plus", string.Empty),
-				Text = "Add",
-				Command = new Command(OnAddItem)
+				FontSize = 12,
+				TextColor = Color.White,
+				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
 
-			ToolbarItems.Add(addItem);
+			availableAmountLabel.SetBinding<MainViewModel>(Label.TextProperty, m => m.AvailableAmountLabel);
 
-			var listView = new ListView {
-				ItemTemplate = new DataTemplate (()=>
-					{
-						var vc = new PeopleListViewCell();
-
-						vc.EditUserCommand = new Command(OnEditUser);
-
-						vc.DeleteUserCommand = new Command(OnDeleteUser);
-
-						return vc;
-					}),
-				HasUnevenRows = true,
-				SeparatorColor = Color.Gray,
-				ItemsSource = _data
+			var availableAmount = new Label
+			{
+				FontSize = 30,
+				TextColor = Color.White,
+				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
 
-			listView.ItemTapped += (sender, e) => {
-				
-				if (listView.SelectedItem == null)
-					return;
-				else
+			availableAmount.SetBinding<MainViewModel>(Label.TextProperty, m => m.AvailableAmount, BindingMode.Default, new AmountFormatter());
+
+			var layout = new StackLayout
+			{
+				BackgroundColor = Color.FromHex("3eb5e5"),
+				HeightRequest = 200,
+				VerticalOptions = LayoutOptions.Start,
+				Children = 
 				{
-					//Handle selection here
+					new StackLayout
+					{
+						VerticalOptions = LayoutOptions.CenterAndExpand,
+						Children = 
+						{
+							availableAmountLabel,
+							availableAmount
+						}
+					}
 				}
-				listView.SelectedItem = null;
 			};
 
-			return listView;
-		}
-
-		void OnDeleteUser (object obj)
-		{
-			var menuItem = (MenuItem) obj;
-
-			var selectedItem = (Person) menuItem.CommandParameter;
-
-			if(selectedItem != null)
+			var grid = new Grid
 			{
-				_data.Remove(selectedItem);
-			}
-		}
-
-		void OnEditUser (object obj)
-		{
-			var menuItem = (MenuItem) obj;
-
-			var selectedItem = (Person) menuItem.CommandParameter;
-
-			if(selectedItem != null)
-			{
-				Navigation.PushAsync(new EditScreen((Person) selectedItem, ref _data));
-			}
-		}
-
-		void OnAddItem ()
-		{
-			var newItem = new Person
-			{
-				UserName = "No name",
-				Subtitle = "Edit me",
-				Color = Color.Black,
-				UniqueIdentifier = Guid.NewGuid().ToString()
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				HorizontalOptions = LayoutOptions.FillAndExpand
 			};
 
-			_data.Add(newItem);
+			grid.RowDefinitions.Add(new RowDefinition
+				{
+					Height = new GridLength(1, GridUnitType.Star)
+				});
+			grid.RowDefinitions.Add(new RowDefinition
+				{
+					Height = new GridLength(1, GridUnitType.Star)
+				});
+
+			grid.ColumnDefinitions.Add(new ColumnDefinition
+				{
+					Width = new GridLength(1, GridUnitType.Star)
+				});
+
+			grid.ColumnDefinitions.Add(new ColumnDefinition
+				{
+					Width = new GridLength(1, GridUnitType.Star)
+				});
+
+			grid.Children.Add(new BoxView
+				{
+					Color = Color.Blue
+				}, 0, 0);
+
+			grid.Children.Add(new BoxView
+				{
+					Color = Color.Red
+				}, 0, 1);
+
+			grid.Children.Add(new BoxView
+				{
+					Color = Color.Silver
+				}, 1,0);
+			
+			grid.Children.Add(new BoxView
+				{
+					Color = Color.Maroon
+				}, 1, 1);
+
+			return new StackLayout
+			{
+				Children = 
+				{
+					layout,
+					grid
+				}
+			};
 		}
 	}
 }
