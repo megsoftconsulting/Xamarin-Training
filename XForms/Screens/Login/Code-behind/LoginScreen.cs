@@ -9,102 +9,76 @@ namespace XForms.CodeBehind
 		public LoginScreen ()
 		{
 			Content = CreatePageContent();
+
+			BindingContext = new LoginViewModel();
+
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 
 		public View CreatePageContent ()
 		{
-			var logo = new Image
-			{
-				Source = "megsoft",
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				HeightRequest = 200,
-				Aspect = Aspect.AspectFit
-			};
+			this.SetBinding<LoginViewModel>(TitleProperty, m => m.Title);
 
-			var title = new Label
+			var userNameEntry = new Entry
 			{
-				Text = "Social App",
-				TextColor = Color.FromHex("13a3e2"),
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
-				FontAttributes = FontAttributes.Bold,
-				FontSize = 32
-			};
-
-			var subtitle = new Label
-			{
-				Text = "Be social. Meet new people",
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				TextColor = Color.Gray
 			};
+			userNameEntry.SetBinding<LoginViewModel>(Entry.PlaceholderProperty, m => m.UserNamePlaceholder);
+			userNameEntry.SetBinding<LoginViewModel>(Entry.TextProperty, m => m.UserName);
 
-			var firstLayout = new StackLayout
+			var passwordEntry = new Entry
 			{
-				VerticalOptions = LayoutOptions.CenterAndExpand,
-				Children = 
-				{
-					logo,
-					title,
-					subtitle
-				}
+				TextColor = Color.Gray
 			};
+			passwordEntry.SetBinding<LoginViewModel>(Entry.PlaceholderProperty, m => m.PasswordPlaceholder);
+			passwordEntry.SetBinding<LoginViewModel>(Entry.TextProperty, m => m.Password);
 
-			var facebookButton = new StackLayout
+			var forgotPasswordLabel = new Label
 			{
-				Children = 
-				{
-					new StackLayout
-					{
-						Orientation = StackOrientation.Horizontal,
-						Children = 
-						{
-							new Button
-							{
-								HorizontalOptions = LayoutOptions.CenterAndExpand,
-								BackgroundColor = Color.FromHex("3b5998"),
-								BorderRadius = 4,
-								Text = "Login using Facebook",
-								WidthRequest = 200,
-								TextColor = Color.White,
-								Command = new Command(OnNavigateTo)
-							}
-						}
-					}
-				}
-			};
-
-			var releaseVersion = new Label
-			{
-				Text = "Demo 1.0",
 				TextColor = Color.Gray,
-				FontSize = 10,
-				HorizontalOptions = LayoutOptions.CenterAndExpand
+				FontSize = 12
 			};
 
-			var secondLayout = new StackLayout
+			var tapGesture = new TapGestureRecognizer();
+
+			tapGesture.SetBinding<LoginViewModel>(TapGestureRecognizer.CommandProperty, m => m.ForgotPasswordCommand);
+
+			forgotPasswordLabel.GestureRecognizers.Add(tapGesture);
+
+			forgotPasswordLabel.SetBinding<LoginViewModel>(Label.TextProperty, m => m.ForgotPasswordLabel);
+			
+			var loginButton = new Button
 			{
-				Spacing = 12,
+				BorderRadius = 4,
+				BorderColor = Color.Transparent,
+				WidthRequest = 100,
 				VerticalOptions = LayoutOptions.End,
-				Children = 
-				{
-					facebookButton,
-					releaseVersion
-				}
+				TextColor = Color.White
 			};
+
+			loginButton.SetBinding<LoginViewModel>(Button.BackgroundColorProperty, m => m.LoginActionColor);
+			loginButton.SetBinding<LoginViewModel>(Button.TextProperty, m => m.LoginActionLabel);
+			loginButton.SetBinding<LoginViewModel>(Button.CommandProperty, m => m.LoginCommand);
 
 			return new StackLayout
 			{
 				Padding = new Thickness(20,40),
 				Children = 
 				{
-					firstLayout,
-					secondLayout
+					new StackLayout
+					{
+						Spacing = 20,
+						VerticalOptions = LayoutOptions.CenterAndExpand,
+						Children = 
+						{
+							userNameEntry,
+							passwordEntry,
+							forgotPasswordLabel
+						}
+					},
+					loginButton
 				}
 			};
-		}
-
-		async void OnNavigateTo ()
-		{
-			await App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new MainScreen()));
 		}
 	}
 }

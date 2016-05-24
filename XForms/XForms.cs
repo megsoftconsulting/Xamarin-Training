@@ -8,7 +8,7 @@ namespace XForms
 	{
 		public App ()
 		{
-			MainPage = new LoginScreen();
+			MainPage = new NavigationPage(new LoginScreen());
 		}
 
 		protected override void OnStart ()
