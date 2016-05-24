@@ -8,11 +8,60 @@ namespace XForms
 {
 	public class MainScreen : ContentPage
 	{
+		Grid _grid;
+
 		public MainScreen ()
 		{
 			Content = CreatePageContent();
 
-			BindingContext = new MainViewModel();
+			var viewModel = new MainViewModel();
+
+			BindingContext = viewModel;
+
+			viewModel.PropertyChanged += OnPropertyChanged;
+
+			viewModel.Init();
+		}
+
+		void OnPropertyChanged (object sender, System.ComponentModel.PropertyChangedEventArgs e)
+		{
+			switch(e.PropertyName)
+			{
+			case "Tabs":
+				{
+					var tab = sender as MainViewModel;
+
+					if(tab != null)
+					{
+						var list = tab.Tabs;
+
+						if(list != null && list.Count > 0)
+						{
+
+							var items = 0;
+
+							var quantity = list.Count / 2;
+
+							var rows = _grid.RowDefinitions.Count;
+
+							for (var column = 0; column < quantity; column++)
+							{
+								for (var row = 0; row < rows; row++)
+								{
+									var createdGrid = CreateView();
+
+									var context = list[items++];
+
+									createdGrid.BindingContext = context;
+
+									_grid.Children.Add(createdGrid, row, column);
+								}
+							}
+						}
+					}
+				}
+				break;
+			}
 		}
 
 		View CreatePageContent ()
@@ -54,61 +103,81 @@ namespace XForms
 				}
 			};
 
-			var grid = new Grid
-			{
+			_grid = new Grid {
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				HorizontalOptions = LayoutOptions.FillAndExpand
 			};
 
-			grid.RowDefinitions.Add(new RowDefinition
+			_grid.RowDefinitions.Add(new RowDefinition
 				{
 					Height = new GridLength(1, GridUnitType.Star)
 				});
-			grid.RowDefinitions.Add(new RowDefinition
+			_grid.RowDefinitions.Add(new RowDefinition
 				{
 					Height = new GridLength(1, GridUnitType.Star)
 				});
 
-			grid.ColumnDefinitions.Add(new ColumnDefinition
+			_grid.ColumnDefinitions.Add(new ColumnDefinition
 				{
 					Width = new GridLength(1, GridUnitType.Star)
 				});
 
-			grid.ColumnDefinitions.Add(new ColumnDefinition
+			_grid.ColumnDefinitions.Add(new ColumnDefinition
 				{
 					Width = new GridLength(1, GridUnitType.Star)
 				});
-
-			grid.Children.Add(new BoxView
-				{
-					Color = Color.Blue
-				}, 0, 0);
-
-			grid.Children.Add(new BoxView
-				{
-					Color = Color.Red
-				}, 0, 1);
-
-			grid.Children.Add(new BoxView
-				{
-					Color = Color.Silver
-				}, 1,0);
 			
-			grid.Children.Add(new BoxView
-				{
-					Color = Color.Maroon
-				}, 1, 1);
-
 			return new StackLayout
 			{
 				Children = 
 				{
 					layout,
-					grid
+					_grid
 				}
 			};
 		}
+
+		View CreateView ()
+		{
+			var icon = new Image
+			{
+				WidthRequest = 64,
+				HeightRequest = 64,
+				Aspect = Aspect.AspectFit,
+				HorizontalOptions = LayoutOptions.CenterAndExpand
+			};
+
+			icon.SetBinding<Tab>(Image.SourceProperty, m => m.Icon);
+
+			var label = new Label
+			{
+				TextColor = Color.Gray,
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				FontSize = 18
+			};
+
+			label.SetBinding<Tab>(Label.TextProperty, m => m.Title);
+
+			var layout = new StackLayout
+			{
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				Children = 
+				{
+					new StackLayout
+					{
+						VerticalOptions = LayoutOptions.CenterAndExpand,
+						Children = 
+						{
+							icon,
+							label
+						}
+					}
+				}
+			};
+
+			layout.SetBinding<Tab>(StackLayout.BackgroundColorProperty, m => m.Background);
+
+			return layout;
+		}
 	}
 }
-
-
