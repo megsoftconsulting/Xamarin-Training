@@ -141,8 +141,8 @@ namespace XForms
 		{
 			var icon = new Image
 			{
-				WidthRequest = 64,
-				HeightRequest = 64,
+				WidthRequest = 48,
+				HeightRequest = 48,
 				Aspect = Aspect.AspectFit,
 				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
@@ -165,6 +165,7 @@ namespace XForms
 				{
 					new StackLayout
 					{
+						Spacing = 14,
 						VerticalOptions = LayoutOptions.CenterAndExpand,
 						Children = 
 						{

@@ -27,25 +27,25 @@ namespace XForms
 				new Tab
 				{
 					Title = "Pay",
-					Icon = "megsoft",
+					Icon = "pay",
 					Background = Color.FromHex("f6f6f6")
 				},
 				new Tab
 				{
 					Title = "Request Money",
-					Icon = "megsoft",
+					Icon = "request",
 					Background = Color.FromHex("f6f6f6")
 				},
 				new Tab
 				{
 					Title = "Profile Information",
-					Icon = "megsoft",
+					Icon = "profile",
 					Background = Color.FromHex("f6f6f6")
 				},
 				new Tab
 				{
 					Title = "Log out",
-					Icon = "megsoft",
+					Icon = "logout",
 					Background = Color.FromHex("f6f6f6")
 				}
 			};
