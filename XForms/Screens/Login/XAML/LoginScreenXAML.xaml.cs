@@ -10,11 +10,10 @@ namespace XForms
 		public LoginScreenXAML ()
 		{
 			InitializeComponent ();
-		}
 
-		public async void OnNavigateTo (object sender, EventArgs e)
-		{
-			await App.Current.MainPage.Navigation.PushModalAsync(new NavigationPage(new MainScreen()));
+			BindingContext = new LoginViewModel();
+
+			NavigationPage.SetHasNavigationBar(this, false);
 		}
 	}
 }

@@ -1,66 +1,48 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XForms.LoginScreenXAML">
-	<ContentPage.Content>
 
-		<StackLayout
-			Padding="20,40">
+	<StackLayout
+		Padding="20,40">
 
-			<StackLayout
-				VerticalOptions="CenterAndExpand">
-						
-				<Image
-					Source="megsoft"
-					HorizontalOptions="CenterAndExpand"
-					HeightRequest="200"
-					Aspect="AspectFit"/>
+	<StackLayout
+		Spacing="20"
+		VerticalOptions="CenterAndExpand">
 
-				<Label
-					Text="Social App"
-					TextColor="#13a3e2"
-					HorizontalOptions="CenterAndExpand"
-					FontAttributes="Bold"
-					FontSize="32"/>
+		<Entry
+			TextColor="Gray"
+			Placeholder="{Binding UserNamePlaceholder}"
+			Text="{Binding UserName}"/>
 
-				<Label
-					Text="Be social. Meet new people"
-					HorizontalOptions="CenterAndExpand"
-					TextColor="Gray"/>
+		<Entry
+			TextColor="Gray"
+			Placeholder="{Binding PasswordPlaceholder}"
+			Text="{Binding Password}"/>
 
-			</StackLayout>
+		<Label
+			TextColor="Gray"
+			FontSize="12"
+			Text="{Binding ForgotPasswordLabel}">
 
-			<StackLayout
-				Spacing="12"
-				VerticalOptions="End">
+			<Label.GestureRecognizers>
 
-				<StackLayout>
+				<TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
 
-				<StackLayout
-					Orientation="Horizontal">
+			</Label.GestureRecognizers>
 
-					<Button
-						HorizontalOptions="CenterAndExpand"
-						BackgroundColor="#3b5998"
-						BorderRadius="4"
-						Text="Login using Facebook"
-						WidthRequest="200"
-						TextColor = "White"
-						Clicked="OnNavigateTo"/>
+		</Label>
 
-				</StackLayout>
+	</StackLayout>
 
-				</StackLayout>
+	<Button
+		BorderRadius="4"
+		BorderColor="Transparent"
+		WidthRequest="100"
+		VerticalOptions="End"
+		TextColor="White"
+		BackgroundColor="{Binding LoginActionColor}"
+		Text="{Binding LoginActionLabel}"
+		Command="{Binding LoginCommand}"/>
 
-				<Label
-					Text="Demo 1.0"
-					TextColor="Gray"
-					FontSize="10"
-					HorizontalOptions="CenterAndExpand"/>
+	</StackLayout>
 
-			</StackLayout>
-
-		</StackLayout>
-		
-
-
-	</ContentPage.Content>
 </ContentPage>
