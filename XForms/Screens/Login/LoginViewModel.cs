@@ -53,7 +53,7 @@ namespace XForms
 
 		void OnLogin ()
 		{
-			
+			Application.Current.MainPage.Navigation.PushAsync(new MainScreen());
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
