@@ -3,32 +3,34 @@
 xmlns="http://xamarin.com/schemas/2014/forms" 
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="XForms.MainScreenXAML"
-xmlns:CustomCell="clr-namespace:XForms;assembly=XForms"
-Title="Main">
+xmlns:CustomCell="clr-namespace:XForms;assembly=XForms">
 
-	<ContentPage.ToolbarItems>
-		<ToolbarItem
-			x:Name="AddItem"
-			Text="Add">
-		</ToolbarItem>
-	</ContentPage.ToolbarItems>
+<StackLayout>
 
-	<ContentPage.Content>
+<StackLayout
+	BackgroundColor="#3eb5e5"
+	HeightRequest="200"
+	VerticalOptions="Start">
 
-	<ListView
-		x:Name="ListView"
-		HasUnevenRows="true"
-		SeparatorColor="Gray"
-		ItemTapped="OnItemTapped">
+	<StackLayout
+		VerticalOptions="CenterAndExpand">
 
-		<ListView.ItemTemplate>
-			 <DataTemplate>
-        			<CustomCell:MainScreenViewCellContent/>
-     		 </DataTemplate>
-		</ListView.ItemTemplate>
+		<Label
+			FontSize="12"
+			TextColor="White"
+			HorizontalOptions="CenterAndExpand"
+			Text="{Binding AvailableAmountLabel}"/>
 
-	</ListView>
+		<Label
+			FontSize="30"
+			TextColor="White"
+			HorizontalOptions="CenterAndExpand"
+			Text="{Binding AvailableAmount, Converter={StaticResource FormatConverter}}"/>
 
+	</StackLayout>
 
-	</ContentPage.Content>
+</StackLayout>
+
+</StackLayout>
+	
 </ContentPage>
