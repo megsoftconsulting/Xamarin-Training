@@ -21,7 +21,21 @@ namespace XForms
 
 			viewModel.PropertyChanged += OnPropertyChanged;
 
+			viewModel.NavigateTo += OnNavigateTo; 
+
 			viewModel.Init();
+		}
+
+		async void OnNavigateTo (object sender, TabEventArgs e)
+		{
+			var tab = e.Tab;
+
+			if(tab == null)
+				return;
+
+			var instanceOf = (Page) Activator.CreateInstance(tab.NavigateToScreen);
+
+			await Navigation.PushAsync(instanceOf);
 		}
 
 		void OnPropertyChanged (object sender, System.ComponentModel.PropertyChangedEventArgs e)

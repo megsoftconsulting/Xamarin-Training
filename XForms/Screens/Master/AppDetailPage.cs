@@ -14,39 +14,13 @@ namespace XForms.Screens.Master
 
 			this.SetBinding<AppDetailViewModel>(MasterDetailPage.TitleProperty, m => m.Title);
 
-			BackgroundColor = Color.FromHex("474747");
+			this.SetBinding<AppDetailViewModel>(MasterDetailPage.BackgroundColorProperty, m => m.BackgroundColor);
 
-			Detail = new NavigationPage(new MainScreen()){
-				BarBackgroundColor = Color.FromHex("3eb5e5"),
-				BarTextColor = Color.White
-			};
+			Detail = new CustomNavigationPage(new MainScreenXaml());
 
             Master = new MenuScreen();
 
             BindingContext = new AppDetailViewModel();
-        }
-    }
-
-    public class AppDetailViewModel : INotifyPropertyChanged
-    {
-        
-        public string Icon { get; set; }
-
-		public string Title { get; set; }
-
-        public AppDetailViewModel()
-        {
-            Icon = "drawer";
-
-			Title = "Dashboard";
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

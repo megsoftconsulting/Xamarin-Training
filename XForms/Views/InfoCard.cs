@@ -10,9 +10,32 @@ namespace XForms.Views
 {
     public class InfoCard : StackLayout
     {
+		//Binding to TapGestureRecognizer.CommandProperty 
+		//does not seem to be working, probably is it a Xamarin Forms bug?
         public InfoCard()
         {
             this.Children.Add(CreateContent());
+
+			var tapGesture = new TapGestureRecognizer
+			{
+				NumberOfTapsRequired = 1
+			};
+
+			tapGesture.Tapped += (sender, e) => 
+			{
+				var binding = BindingContext as Tab;
+
+				if(binding == null)
+					return;
+
+				binding.OnSelected.Execute(binding);
+			};
+
+//			tapGesture.SetBinding<Tab>(TapGestureRecognizer.CommandProperty, m => m.OnSelected);
+
+//			tapGesture.SetBinding(TapGestureRecognizer.CommandProperty, ".");
+
+			GestureRecognizers.Add(tapGesture);
         }
 
         private View CreateContent()

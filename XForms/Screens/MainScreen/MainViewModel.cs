@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using XForms.CodeBehind;
 
 namespace XForms
 {
@@ -15,6 +16,8 @@ namespace XForms
 
 		public List<Tab> Tabs { get; set; }
 
+		public event EventHandler<TabEventArgs> NavigateTo;
+
 		public MainViewModel ()
 		{
 			Title = "Dashboard";
@@ -22,6 +25,14 @@ namespace XForms
 			AvailableAmountLabel = "AVAILABLE BALANCE";
 
 			AvailableAmount = 12000.00;
+		}
+
+		void OnTabSelected (Tab selectedTab)
+		{
+			OnNavigateTo(new TabEventArgs
+				{
+					Tab = selectedTab
+				});
 		}
 
 		public void Init()
@@ -32,25 +43,33 @@ namespace XForms
 				{
 					Title = "Pay",
 					Icon = "pay",
-					Background = Color.FromHex("f6f6f6")
+					Background = Color.FromHex("f6f6f6"),
+					OnSelected = new Command<Tab>(OnTabSelected),
+					NavigateToScreen = typeof(LoginScreen)
 				},
 				new Tab
 				{
 					Title = "Request Money",
 					Icon = "request",
-					Background = Color.FromHex("f6f6f6")
+					Background = Color.FromHex("f6f6f6"),
+					OnSelected = new Command<Tab>(OnTabSelected),
+					NavigateToScreen = typeof(LoginScreen)
 				},
 				new Tab
 				{
 					Title = "Profile Information",
 					Icon = "profile",
-					Background = Color.FromHex("f6f6f6")
+					Background = Color.FromHex("f6f6f6"),
+					OnSelected = new Command<Tab>(OnTabSelected),
+					NavigateToScreen = typeof(LoginScreen)
 				},
 				new Tab
 				{
 					Title = "Log out",
 					Icon = "logout",
-					Background = Color.FromHex("f6f6f6")
+					Background = Color.FromHex("f6f6f6"),
+					OnSelected = new Command<Tab>(OnTabSelected),
+					NavigateToScreen = typeof(LoginScreen)
 				}
 			};
 		}
@@ -60,6 +79,13 @@ namespace XForms
 		protected virtual void OnPropertyChanged (PropertyChangedEventArgs e)
 		{
 			var handler = PropertyChanged;
+			if (handler != null)
+				handler (this, e);
+		}
+
+		protected virtual void OnNavigateTo (TabEventArgs e)
+		{
+			var handler = NavigateTo;
 			if (handler != null)
 				handler (this, e);
 		}

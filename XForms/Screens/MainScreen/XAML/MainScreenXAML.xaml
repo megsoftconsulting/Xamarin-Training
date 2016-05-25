@@ -3,6 +3,7 @@
 xmlns="http://xamarin.com/schemas/2014/forms" 
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="XForms.MainScreenXaml"
+Title="{Binding Title}"
 xmlns:CustomCell="clr-namespace:XForms;assembly=XForms">
 
   <ContentPage.Resources>
@@ -11,7 +12,8 @@ xmlns:CustomCell="clr-namespace:XForms;assembly=XForms">
     </ResourceDictionary>
   </ContentPage.Resources>
 
-  <StackLayout>
+  <StackLayout
+	Spacing="0">
 
 <StackLayout
 	BackgroundColor="#3eb5e5"
@@ -30,6 +32,7 @@ xmlns:CustomCell="clr-namespace:XForms;assembly=XForms">
 		<Label
 			FontSize="30"
 			TextColor="White"
+			FontAttributes="Bold"
 			HorizontalOptions="CenterAndExpand"
 			Text="{Binding AvailableAmount, Converter={StaticResource AmountFormatter}}"/>
 
@@ -40,12 +43,14 @@ xmlns:CustomCell="clr-namespace:XForms;assembly=XForms">
   <Grid
     x:Name="Grid"
     VerticalOptions="FillAndExpand"
-    HorizontalOptions="FillAndExpand">
+    HorizontalOptions="FillAndExpand"
+    RowSpacing="2"
+    ColumnSpacing="2">
     
     <Grid.RowDefinitions>
 
-      <RowDefinition Height="*"/>
-      <RowDefinition Height="*"/>
+      <RowDefinition Height="100"/>
+      <RowDefinition Height="100"/>
       
     </Grid.RowDefinitions>
     

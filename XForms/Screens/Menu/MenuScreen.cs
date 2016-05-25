@@ -25,24 +25,26 @@ namespace XForms.Screens.Menu
 
 			var background = new Image
 			{
-				Source = "background",
 				Aspect = Aspect.AspectFill
 			};
 
-			var label = new Label
+			background.SetBinding<MenuViewModel>(Image.SourceProperty, m => m.Background);
+
+			var loggedInUser = new Label
 			{
-				Text = "Welcome Back Luis",
 				TextColor = Color.White,
-				FontSize = 16,
+				FontSize = 18,
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				VerticalOptions = LayoutOptions.CenterAndExpand
 			};
+
+			loggedInUser.SetBinding<MenuViewModel>(Label.TextProperty, m => m.LoggedInUser);
 
 			var userLayout = new StackLayout
 			{
 				Children = 
 				{
-					label
+					loggedInUser
 				}
 			};
 

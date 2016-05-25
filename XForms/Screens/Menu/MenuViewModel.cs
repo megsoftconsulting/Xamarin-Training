@@ -19,13 +19,21 @@ namespace XForms.Screens.Menu
 
         public string Icon { get; set; }
 
-        public string Title { get; set; }
+		public string Title { get; set; }
+
+		public string Background { get; set; }
+
+		public string LoggedInUser { get; set; }
 
         public MenuViewModel()
         {
             Title = "Title";
 
             Icon = "drawer";
+
+			Background = "background";
+
+			LoggedInUser = "Luis Nunez";
 
             Options = new List<CustomMenu>
             {
