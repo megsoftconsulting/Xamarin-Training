@@ -7,6 +7,8 @@ namespace XForms
 {
 	public class MainViewModel : INotifyPropertyChanged
 	{
+		public string Title { get; set; }
+
 		public string AvailableAmountLabel { get; set; }
 
 		public double AvailableAmount { get; set; }
@@ -15,6 +17,8 @@ namespace XForms
 
 		public MainViewModel ()
 		{
+			Title = "Dashboard";
+
 			AvailableAmountLabel = "AVAILABLE BALANCE";
 
 			AvailableAmount = 12000.00;

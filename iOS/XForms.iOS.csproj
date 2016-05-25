@@ -131,6 +131,7 @@
     <BundleResource Include="Resources\pay%402x.png" />
     <BundleResource Include="Resources\profile%402x.png" />
     <BundleResource Include="Resources\request%402x.png" />
+    <BundleResource Include="Resources\background%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\drawer%402x.png" />

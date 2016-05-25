@@ -104,10 +104,6 @@
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="packages.config" />
-    <InterfaceDefinition Include="Resources\drawable\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Resources\drawable-hdpi\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Resources\drawable-xhdpi\LaunchScreen.xib" />
-    <InterfaceDefinition Include="Resources\drawable-xxhdpi\LaunchScreen.xib" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\layout\" />
@@ -186,5 +182,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\background.png" />
+    <BundleResource Include="Resources\drawable-hdpi\background.png" />
+    <BundleResource Include="Resources\drawable-xhdpi\background.png" />
+    <BundleResource Include="Resources\drawable-xxhdpi\background.png" />
   </ItemGroup>
 </Project>

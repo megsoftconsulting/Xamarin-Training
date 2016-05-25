@@ -21,7 +21,7 @@ namespace XForms.Droid
 
 			ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
 
-			LoadApplication (new App ());
+			LoadApplication (new XFormsApp ());
 		}
 	}
 }

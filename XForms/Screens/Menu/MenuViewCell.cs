@@ -19,7 +19,7 @@ namespace XForms.Screens.Menu
         {
             var label = new Label
             {
-                TextColor = Color.White,
+				TextColor = Color.White,
                 FontSize = 18
             };
 
@@ -27,9 +27,8 @@ namespace XForms.Screens.Menu
 
             return new StackLayout
             {
-                Margin = new Thickness(10,10),
-                BackgroundColor = Color.FromHex("cfcfcf"),
-                Padding = new Thickness(16,10),
+                Margin = new Thickness(10,20),
+                Padding = new Thickness(16,14),
                 Children =
                 {
                     label

@@ -64,6 +64,8 @@ namespace XForms
 
 		View CreatePageContent ()
 		{
+			this.SetBinding<MainViewModel>(TitleProperty, m => m.Title);
+
 			var availableAmountLabel = new Label
 			{
 				FontSize = 12,
@@ -77,7 +79,8 @@ namespace XForms
 			{
 				FontSize = 30,
 				TextColor = Color.White,
-				HorizontalOptions = LayoutOptions.CenterAndExpand
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				FontAttributes = FontAttributes.Bold
 			};
 
 			availableAmount.SetBinding<MainViewModel>(Label.TextProperty, m => m.AvailableAmount, BindingMode.Default, new AmountFormatter());
@@ -103,7 +106,9 @@ namespace XForms
 
 			_grid = new Grid {
 				VerticalOptions = LayoutOptions.FillAndExpand,
-				HorizontalOptions = LayoutOptions.FillAndExpand
+				HorizontalOptions = LayoutOptions.FillAndExpand,
+				RowSpacing = 2,
+				ColumnSpacing = 2
 			};
 
 			_grid.RowDefinitions.Add(new RowDefinition
@@ -127,6 +132,7 @@ namespace XForms
 			
 			return new StackLayout
 			{
+				Spacing = 0,
 				Children = 
 				{
 					layout,
