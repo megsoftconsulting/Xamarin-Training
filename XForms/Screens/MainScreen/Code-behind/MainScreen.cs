@@ -108,11 +108,11 @@ namespace XForms
 
 			_grid.RowDefinitions.Add(new RowDefinition
 				{
-					Height = new GridLength(1, GridUnitType.Star)
+					Height = new GridLength(100, GridUnitType.Absolute)
 				});
 			_grid.RowDefinitions.Add(new RowDefinition
 				{
-					Height = new GridLength(1, GridUnitType.Star)
+					Height = new GridLength(100, GridUnitType.Absolute)
 				});
 
 			_grid.ColumnDefinitions.Add(new ColumnDefinition

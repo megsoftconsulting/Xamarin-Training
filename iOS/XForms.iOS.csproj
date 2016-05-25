@@ -132,4 +132,7 @@
     <BundleResource Include="Resources\profile%402x.png" />
     <BundleResource Include="Resources\request%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawer%402x.png" />
+  </ItemGroup>
 </Project>

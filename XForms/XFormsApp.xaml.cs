@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using XForms.CodeBehind;
+using XForms.Screens.Menu;
 
 namespace XForms
 {
@@ -11,7 +13,7 @@ namespace XForms
 		{
 			InitializeComponent ();
 
-            MainPage = new NavigationPage(new MainScreenXaml());
+            MainPage = new NavigationPage(new LoginScreen());
 		}
 	}
 }

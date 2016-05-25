@@ -19,8 +19,8 @@ namespace XForms.Views
         {
             var icon = new Image
             {
-                WidthRequest = 48,
-                HeightRequest = 48,
+                WidthRequest = 32,
+                HeightRequest = 32,
                 Aspect = Aspect.AspectFit,
                 HorizontalOptions = LayoutOptions.CenterAndExpand
             };
@@ -31,7 +31,7 @@ namespace XForms.Views
             {
                 TextColor = Color.Gray,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                FontSize = 18
+                FontSize = 12
             };
 
             label.SetBinding<Tab>(Label.TextProperty, m => m.Title);

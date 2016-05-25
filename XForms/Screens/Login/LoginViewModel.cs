@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Xamarin.Forms;
 using System.Windows.Input;
+using XForms.Screens.Master;
 
 namespace XForms
 {
@@ -53,7 +54,7 @@ namespace XForms
 
 		void OnLogin ()
 		{
-			Application.Current.MainPage.Navigation.PushAsync(new MainScreen());
+		    Application.Current.MainPage = new AppDetailPage();
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -61,8 +62,7 @@ namespace XForms
 		protected virtual void OnPropertyChanged (PropertyChangedEventArgs e)
 		{
 			var handler = PropertyChanged;
-			if (handler != null)
-				handler (this, e);
+		    handler?.Invoke (this, e);
 		}
 	}
 }
