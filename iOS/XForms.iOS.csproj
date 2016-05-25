@@ -126,12 +126,12 @@
   <ItemGroup>
     <BundleResource Include="Resources\facebook%402x.png" />
     <BundleResource Include="Resources\plus%402x.png" />
-    <BundleResource Include="Resources\megsoft%402x.png" />
     <BundleResource Include="Resources\logout%402x.png" />
     <BundleResource Include="Resources\pay%402x.png" />
     <BundleResource Include="Resources\profile%402x.png" />
     <BundleResource Include="Resources\request%402x.png" />
     <BundleResource Include="Resources\background%402x.png" />
+    <BundleResource Include="Resources\logo%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\drawer%402x.png" />

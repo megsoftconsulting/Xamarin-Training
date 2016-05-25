@@ -4,6 +4,25 @@
 	<StackLayout
 		Padding="20,40">
 
+		<StackLayout
+			Spacing="10">
+
+			<Image
+			Margin="0,20,0,0"
+			Aspect="AspectFit"
+			WidthRequest="110"
+			HeightRequest="110"
+			Source="{Binding Logo}"/>
+
+			<Label
+			TextColor="{Binding LoginActionColor}"
+			FontSize="20"
+			FontAttributes="Bold"
+			Text="{Binding Header}"
+			HorizontalOptions="CenterAndExpand"/>
+
+		</StackLayout>
+
 	<StackLayout
 		Spacing="20"
 		VerticalOptions="CenterAndExpand">

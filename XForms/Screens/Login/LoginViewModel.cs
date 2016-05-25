@@ -22,6 +22,10 @@ namespace XForms
 
 		public string LoginActionLabel { get; set; }
 
+		public string Logo { get; set; }
+
+		public string Header { get; set; }
+
 		public Color LoginActionColor { get; set; }
 
 		public ICommand ForgotPasswordCommand { get; set; }
@@ -39,6 +43,10 @@ namespace XForms
 			ForgotPasswordLabel = "Forgot your password?";
 
 			LoginActionLabel = "Sign in";
+
+			Logo = "logo";
+
+			Header = "MoneyPal";
 
 			LoginActionColor = Color.FromHex("3eb5e5");
 

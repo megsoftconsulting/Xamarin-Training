@@ -116,7 +116,6 @@
     <AndroidResource Include="Resources\values\colors.axml" />
     <AndroidResource Include="Resources\values\style.axml" />
     <AndroidResource Include="Resources\drawable\facebook.png" />
-    <AndroidResource Include="Resources\drawable\megsoft.png" />
     <AndroidResource Include="Resources\drawable\plus.png" />
     <AndroidResource Include="Resources\drawable\logout.png" />
     <AndroidResource Include="Resources\drawable\pay.png" />
@@ -154,9 +153,6 @@
     <AndroidResource Include="Resources\drawable-hdpi\facebook.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\megsoft.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\plus.png" />
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\facebook.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\megsoft.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\plus.png" />
@@ -178,9 +171,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\facebook.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\megsoft.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxhdpi\plus.png" />
   </ItemGroup>
   <ItemGroup>
@@ -188,5 +178,9 @@
     <BundleResource Include="Resources\drawable-hdpi\background.png" />
     <BundleResource Include="Resources\drawable-xhdpi\background.png" />
     <BundleResource Include="Resources\drawable-xxhdpi\background.png" />
+    <BundleResource Include="Resources\drawable-xxhdpi\logo.png" />
+    <BundleResource Include="Resources\drawable-xhdpi\logo.png" />
+    <BundleResource Include="Resources\drawable-hdpi\logo.png" />
+    <BundleResource Include="Resources\drawable\logo.png" />
   </ItemGroup>
 </Project>

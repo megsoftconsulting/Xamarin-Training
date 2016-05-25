@@ -19,6 +19,26 @@ namespace XForms.CodeBehind
 		{
 			this.SetBinding<LoginViewModel>(TitleProperty, m => m.Title);
 
+			var image = new Image
+			{
+				Margin = new Thickness(0,20,0,0),
+				Aspect = Aspect.AspectFit, 
+				WidthRequest = 110,
+				HeightRequest = 110
+			};
+
+			image.SetBinding<LoginViewModel>(Image.SourceProperty, m => m.Logo);
+
+			var header = new Label
+			{
+				FontSize = 20,
+				FontAttributes = FontAttributes.Bold,
+				HorizontalOptions = LayoutOptions.CenterAndExpand
+			};
+
+			header.SetBinding<LoginViewModel>(Label.TextProperty, m => m.Header);
+			header.SetBinding<LoginViewModel>(Label.TextColorProperty, m => m.LoginActionColor);
+
 			var userNameEntry = new Entry
 			{
 				TextColor = Color.Gray
@@ -65,6 +85,15 @@ namespace XForms.CodeBehind
 				Padding = new Thickness(20,40),
 				Children = 
 				{
+					new StackLayout
+					{
+						Spacing = 10,
+						Children = 
+						{
+							image,
+							header
+						}
+					},
 					new StackLayout
 					{
 						Spacing = 20,
