@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using XForms.CodeBehind;
 using XForms.Screens.Menu;
 using XForms.Screens.TransactionDetail;
+using XForms.Screens.TransactionDetail.XAML;
 
 namespace XForms
 {
@@ -14,7 +15,7 @@ namespace XForms
 		{
 			InitializeComponent ();
 
-			MainPage = new NavigationPage(new LoginScreen());
+			MainPage = new NavigationPage(new TransactionDetailScreenXaml());
 		}
 	}
 }

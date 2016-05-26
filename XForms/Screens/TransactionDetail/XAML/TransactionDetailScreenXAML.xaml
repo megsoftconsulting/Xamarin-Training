@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XForms.Screens.TransactionDetail.XAML.TransactionDetailScreenXaml"
+             Title="{Binding Title}">
+
+  <StackLayout>
+
+    <StackLayout Padding="20">
+
+      <StackLayout
+        Spacing="16">
+
+        <Label
+          FontSize="12"
+          TextColor="Gray"
+          Text="{Binding ToHeader}"/>
+
+        <Label
+          FontSize="16"
+          Text="{Binding To}"/>
+
+      </StackLayout>
+
+      <BoxView
+        Color="Gray"
+        HeightRequest="1"
+        HorizontalOptions="FillAndExpand"/>
+
+    </StackLayout>
+
+
+    <StackLayout Padding="20">
+
+      <StackLayout
+        Spacing="16">
+
+        <Label
+          FontSize="12"
+          TextColor="Gray"
+          Text="{Binding TransactionTypeHeader}"/>
+
+        <Label
+          FontSize="16"
+          Text="{Binding TransactionType}"/>
+
+      </StackLayout>
+
+      <BoxView
+        Color="Gray"
+        HeightRequest="1"
+        HorizontalOptions="FillAndExpand"/>
+
+    </StackLayout>
+
+
+
+
+    <StackLayout Padding="20">
+
+      <StackLayout
+        Spacing="16">
+
+        <Label
+          FontSize="12"
+          TextColor="Gray"
+          Text="{Binding PerformedWithHeader}"/>
+
+        <Label
+          FontSize="16"
+          Text="{Binding PerformedWith}"/>
+
+      </StackLayout>
+
+      <BoxView
+        Color="Gray"
+        HeightRequest="1"
+        HorizontalOptions="FillAndExpand"/>
+
+    </StackLayout>
+
+
+    <StackLayout Padding="20">
+
+      <StackLayout
+        Spacing="16">
+
+        <Label
+          FontSize="12"
+          TextColor="Gray"
+          Text="{Binding AmountOfHeader}"/>
+
+        <Label
+          FontSize="16"
+          Text="{Binding AmountOf}"/>
+
+      </StackLayout>
+
+      <BoxView
+        Color="Gray"
+        HeightRequest="1"
+        HorizontalOptions="FillAndExpand"/>
+
+    </StackLayout>
+
+
+    <StackLayout Padding="20">
+
+      <StackLayout
+        Spacing="16">
+
+        <Label
+          FontSize="12"
+          TextColor="Gray"
+          Text="{Binding TransactionNotesHeader}"/>
+
+        <Label
+          FontSize="16"
+          Text="{Binding TransactionNotes}"/>
+
+      </StackLayout>
+
+      <BoxView
+        Color="Gray"
+        HeightRequest="1"
+        HorizontalOptions="FillAndExpand"/>
+
+    </StackLayout>
+    
+    
+    
+  </StackLayout>
+    
+  
+</ContentPage>

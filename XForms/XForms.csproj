@@ -42,6 +42,9 @@
     <Compile Include="Screens\Menu\MenuViewModel.cs" />
     <Compile Include="Screens\TransactionDetail\Code-Behind\TransactionDetailScreen.cs" />
     <Compile Include="Screens\TransactionDetail\TransactionDetailViewModel.cs" />
+    <Compile Include="Screens\TransactionDetail\XAML\TransactionDetailScreenXAML.xaml.cs">
+      <DependentUpon>TransactionDetailScreenXAML.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shared\CustomMenu.cs" />
     <Compile Include="Shared\Person.cs" />
     <Compile Include="Screens\MainScreen\XAML\MainScreenXAML.xaml.cs">
@@ -76,9 +79,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Import Project="..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\portable-net+sl+win+wpa+wp\Fody.targets')" />
-  <ItemGroup>
-    <Folder Include="Screens\TransactionDetail\XAML\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Screens\Login\XAML\LoginScreenXAML.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
@@ -120,5 +121,10 @@
     <None Include="packages.config" />
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Screens\TransactionDetail\XAML\TransactionDetailScreenXAML.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>
