@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
-using XForms.CodeBehind;
-using XForms.Screens.Menu;
-using XForms.Screens.TransactionDetail;
-using XForms.Screens.TransactionDetail.XAML;
+﻿using Xamarin.Forms;
+using XForms.Screens.Profile;
 
 namespace XForms
 {
@@ -15,7 +9,7 @@ namespace XForms
 		{
 			InitializeComponent ();
 
-			MainPage = new NavigationPage(new TransactionDetailScreenXaml());
+			MainPage = new NavigationPage(new ProfileScreen());
 		}
 	}
 }
