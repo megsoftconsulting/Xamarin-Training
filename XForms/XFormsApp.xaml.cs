@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using XForms.Screens.Profile;
+using XForms.Screens.Profile.XAML;
 
 namespace XForms
 {
@@ -9,7 +10,7 @@ namespace XForms
 		{
 			InitializeComponent ();
 
-			MainPage = new NavigationPage(new ProfileScreen());
+			MainPage = new NavigationPage(new ProfileScreenXaml());
 		}
 	}
 }
