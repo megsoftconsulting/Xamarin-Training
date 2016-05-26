@@ -6,7 +6,6 @@ using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Xamarin.Forms;
-using XForms.Annotations;
 using XForms.Shared;
 
 namespace XForms.Screens.Menu
@@ -62,7 +61,6 @@ namespace XForms.Screens.Menu
         
         public event PropertyChangedEventHandler PropertyChanged;
         
-        [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
