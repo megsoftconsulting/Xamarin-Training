@@ -13,6 +13,7 @@ namespace XForms
 		public string Subtitle { get; set; }
 
 		public string UniqueIdentifier { get; set; }
+	    public string Picture { get; set; }
 	}
 }
 
