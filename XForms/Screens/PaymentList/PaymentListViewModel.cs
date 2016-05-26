@@ -9,9 +9,13 @@ namespace XForms
 	{
 		public List<GroupOfPayment> Payments { get; set; }
 
-		public PaymentListViewModel ()
-		{
-			Payments = new List<GroupOfPayment>
+	    public string Title { get; set; }
+
+	    public PaymentListViewModel ()
+	    {
+	        Title = "My Transactions";
+
+            Payments = new List<GroupOfPayment>
 			{
 				new GroupOfPayment(DateTime.Now)
 				{

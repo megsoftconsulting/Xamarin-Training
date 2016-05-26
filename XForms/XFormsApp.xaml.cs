@@ -13,7 +13,7 @@ namespace XForms
 		{
 			InitializeComponent ();
 
-			MainPage = new NavigationPage(new PaymentListScreen());
+			MainPage = new NavigationPage(new PaymentScreenListXaml());
 		}
 	}
 }

@@ -13,17 +13,6 @@ namespace XForms
 
 		View CreateContent ()
 		{
-			var image = new CircleImage
-			{
-				VerticalOptions = LayoutOptions.CenterAndExpand,
-				WidthRequest = 48,
-				HeightRequest = 48,
-				Aspect = Aspect.AspectFill,
-				HorizontalOptions = LayoutOptions.StartAndExpand
-			};
-
-			image.SetBinding<Payment>(CircleImage.SourceProperty, m => m.EntityIcon);
-
 			var name = new Label
 			{
 				FontAttributes = FontAttributes.Bold,
@@ -54,7 +43,6 @@ namespace XForms
 				Orientation = StackOrientation.Horizontal,
 				Children = 
 				{
-					image,
 					new StackLayout
 					{
 						HorizontalOptions = LayoutOptions.StartAndExpand,

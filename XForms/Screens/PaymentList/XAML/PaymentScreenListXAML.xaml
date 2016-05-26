@@ -1,11 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="XForms.PaymentScreenListXAML">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xForms="clr-namespace:XForms;assembly=XForms"
+             x:Class="XForms.PaymentScreenListXaml"
+             Title="{Binding Title}">
 
-<ListView
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <xForms:DateConverter x:Key="DateConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <ListView
 RowHeight="70"
 SeparatorVisibility="None"
 SeparatorColor="Transparent"
 IsGroupingEnabled="true"
+ItemsSource="{Binding Payments}"
 GroupDisplayBinding="{Binding Text, Converter={StaticResource DateConverter}}">
 
 <ListView>
@@ -13,7 +23,7 @@ GroupDisplayBinding="{Binding Text, Converter={StaticResource DateConverter}}">
 </ListView>
 	<ListView.ItemTemplate>
 		<DataTemplate>
-			
+			<xForms:PaymentViewCell/>
 		</DataTemplate>
 	</ListView.ItemTemplate>
 </ListView>

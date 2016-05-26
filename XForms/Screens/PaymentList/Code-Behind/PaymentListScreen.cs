@@ -14,6 +14,8 @@ namespace XForms
 
 		View CreateContent ()
 		{
+            this.SetBinding<PaymentListViewModel>(TitleProperty, m => m.Title);
+
 			var listView = new ListView
 			{
 				ItemTemplate = new DataTemplate(typeof(PaymentViewCell)),

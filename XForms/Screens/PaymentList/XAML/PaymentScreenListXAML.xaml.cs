@@ -5,11 +5,13 @@ using Xamarin.Forms;
 
 namespace XForms
 {
-	public partial class PaymentScreenListXAML : ContentPage
+	public partial class PaymentScreenListXaml : ContentPage
 	{
-		public PaymentScreenListXAML ()
+		public PaymentScreenListXaml ()
 		{
 			InitializeComponent ();
+
+            BindingContext = new PaymentListViewModel();
 		}
 	}
 }
