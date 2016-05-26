@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using XForms.Screens.FriendList;
+using XForms.Screens.FriendList.XAML;
 using XForms.Screens.Profile;
 using XForms.Screens.Profile.XAML;
 
@@ -11,7 +12,7 @@ namespace XForms
 		{
 			InitializeComponent ();
 
-			MainPage = new NavigationPage(new FriendListScreen());
+			MainPage = new NavigationPage(new ProfileScreen());
 		}
 	}
 }
