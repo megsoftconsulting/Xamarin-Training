@@ -19,7 +19,10 @@ namespace XForms
 				ItemTemplate = new DataTemplate(typeof(PaymentViewCell)),
 				RowHeight = 70,
 				SeparatorVisibility = SeparatorVisibility.None,
-				SeparatorColor = Color.Transparent
+				SeparatorColor = Color.Transparent,
+				IsGroupingEnabled = true,
+				GroupDisplayBinding = new Binding("Text", BindingMode.Default, new DateConverter()),
+				GroupHeaderTemplate = null
 			};
 
 			listView.SetBinding<PaymentListViewModel>(ListView.ItemsSourceProperty, m => m.Payments);

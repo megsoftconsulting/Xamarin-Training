@@ -16,8 +16,8 @@ namespace XForms
 			var image = new CircleImage
 			{
 				VerticalOptions = LayoutOptions.CenterAndExpand,
-				WidthRequest = 64,
-				HeightRequest = 64,
+				WidthRequest = 48,
+				HeightRequest = 48,
 				Aspect = Aspect.AspectFill,
 				HorizontalOptions = LayoutOptions.StartAndExpand
 			};
