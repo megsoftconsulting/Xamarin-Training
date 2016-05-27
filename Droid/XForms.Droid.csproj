@@ -133,6 +133,15 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\pay.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\profile.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\request.png" />
+    <AndroidResource Include="Resources\drawable\logo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable\background.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\background.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\background.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\background.png" />
+    <AndroidResource Include="Resources\layout\Toolbar.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />
@@ -174,14 +183,7 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\plus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\background.png" />
-    <BundleResource Include="Resources\drawable-hdpi\background.png" />
-    <BundleResource Include="Resources\drawable-xhdpi\background.png" />
-    <BundleResource Include="Resources\drawable-xxhdpi\background.png" />
-    <BundleResource Include="Resources\drawable-xxhdpi\logo.png" />
-    <BundleResource Include="Resources\drawable-xhdpi\logo.png" />
-    <BundleResource Include="Resources\drawable-hdpi\logo.png" />
-    <BundleResource Include="Resources\drawable\logo.png" />
+    <BundleResource Include="Resources\drawable\logo%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\friends.png" />

@@ -17,6 +17,8 @@ namespace XForms.Droid
 		{
 			base.OnCreate (bundle);
 
+			FormsAppCompatActivity.ToolbarResource = Resource.Layout.Toolbar;
+
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 
 			ImageCircle.Forms.Plugin.Droid.ImageCircleRenderer.Init();
