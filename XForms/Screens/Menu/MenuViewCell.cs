@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XForms.Shared;
 
 namespace XForms.Screens.Menu
 {
@@ -17,20 +18,33 @@ namespace XForms.Screens.Menu
 
         private View CreateContent()
         {
+            var icon = new Image
+            {
+                HorizontalOptions = LayoutOptions.Start,
+                WidthRequest = 16,
+                HeightRequest = 16,
+                Aspect = Aspect.AspectFit
+            };
+
+            icon.SetBinding<CustomMenu>(Image.SourceProperty, m => m.Icon);
+
             var label = new Label
             {
-				TextColor = Color.White,
+                HorizontalOptions = LayoutOptions.Start,
+                TextColor = Color.Black,
                 FontSize = 18
             };
 
-            label.SetBinding<Shared.CustomMenu>(Label.TextProperty, m => m.Title);
+            label.SetBinding<CustomMenu>(Label.TextProperty, m => m.Title);
 
             return new StackLayout
             {
-                Margin = new Thickness(10,20),
+                Spacing = 12,
+                Orientation = StackOrientation.Horizontal,
                 Padding = new Thickness(16,14),
                 Children =
                 {
+                    icon,
                     label
                 }
             };

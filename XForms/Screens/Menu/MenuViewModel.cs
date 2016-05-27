@@ -47,22 +47,26 @@ namespace XForms.Screens.Menu
                     new CustomMenu
                     {
                     Title = "Home",
-                    Screen = typeof(MainScreen)
+                    Screen = typeof(MainScreen),
+                    Icon = "home"
                     },
                    new CustomMenu
                    {
                         Title = "Mi Friends",
-                        Screen = typeof(FriendListScreen)
+                        Screen = typeof(FriendListScreen),
+                    Icon = "friends"
                    },
                    new CustomMenu
                    {
                         Title = "Mi Transactions",
-                        Screen = typeof(PaymentListScreen)
+                        Screen = typeof(PaymentListScreen),
+                    Icon = "transaction"
                    },
                    new CustomMenu
                    {
                         Title = "Mi Profile",
-                        Screen = typeof(ProfileScreen)
+                        Screen = typeof(ProfileScreen),
+                    Icon = "profile"
                    }
             };
         }

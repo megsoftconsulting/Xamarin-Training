@@ -136,4 +136,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\drawer%402x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\friends%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\transaction%402x.png" />
+  </ItemGroup>
 </Project>

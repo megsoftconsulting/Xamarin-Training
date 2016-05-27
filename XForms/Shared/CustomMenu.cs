@@ -11,6 +11,7 @@ namespace XForms.Shared
         public string Title { get; set; }
 
         public Type Screen { get; set; }
-        
+
+        public string Icon { get; set; }
     }
 }

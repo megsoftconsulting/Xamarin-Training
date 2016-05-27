@@ -29,6 +29,9 @@ namespace XForms
 
 		void OnTabSelected (Tab selectedTab)
 		{
+		    if (selectedTab.NavigateToScreen == null)
+		        return;
+
 			OnNavigateTo(new TabEventArgs
 				{
 					Tab = selectedTab
@@ -44,32 +47,28 @@ namespace XForms
 					Title = "Pay",
 					Icon = "pay",
 					Background = Color.FromHex("f6f6f6"),
-					OnSelected = new Command<Tab>(OnTabSelected),
-					NavigateToScreen = typeof(LoginScreen)
+					OnSelected = new Command<Tab>(OnTabSelected)
 				},
 				new Tab
 				{
 					Title = "Request Money",
 					Icon = "request",
 					Background = Color.FromHex("f6f6f6"),
-					OnSelected = new Command<Tab>(OnTabSelected),
-					NavigateToScreen = typeof(LoginScreen)
+					OnSelected = new Command<Tab>(OnTabSelected)
 				},
 				new Tab
 				{
 					Title = "Profile Information",
 					Icon = "profile",
 					Background = Color.FromHex("f6f6f6"),
-					OnSelected = new Command<Tab>(OnTabSelected),
-					NavigateToScreen = typeof(LoginScreen)
+					OnSelected = new Command<Tab>(OnTabSelected)
 				},
 				new Tab
 				{
 					Title = "Log out",
 					Icon = "logout",
 					Background = Color.FromHex("f6f6f6"),
-					OnSelected = new Command<Tab>(OnTabSelected),
-					NavigateToScreen = typeof(LoginScreen)
+					OnSelected = new Command<Tab>(OnTabSelected)
 				}
 			};
 		}

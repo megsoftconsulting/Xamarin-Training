@@ -82,8 +82,8 @@ namespace XForms.Screens.Menu
                 ItemTemplate = new DataTemplate(typeof(MenuViewCell)),
                 SeparatorColor = Color.Transparent,
                 SeparatorVisibility = SeparatorVisibility.None,
-                RowHeight = 55,
-				BackgroundColor = Color.Black,
+                RowHeight = 50,
+				BackgroundColor = Color.White,
 				VerticalOptions = LayoutOptions.FillAndExpand
             };
 			listView.ItemSelected += (sender, e) => {
