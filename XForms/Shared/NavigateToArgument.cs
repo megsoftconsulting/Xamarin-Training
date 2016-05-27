@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TinyMessenger;
 
 namespace XForms.Shared
 {
-    public class CustomMenu
+    public class NavigateToArgument : ITinyMessage
     {
-        public string Title { get; set; }
-
         public Type Screen { get; set; }
-        
+
+        public string Identifier { get; set; }
+
+        public object Sender { get; }
     }
 }

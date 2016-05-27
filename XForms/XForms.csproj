@@ -59,6 +59,8 @@
     </Compile>
     <Compile Include="Shared\BankAccount.cs" />
     <Compile Include="Shared\CustomMenu.cs" />
+    <Compile Include="Shared\NavigateToArgument.cs" />
+    <Compile Include="Shared\NavigateToEventArg.cs" />
     <Compile Include="Shared\Person.cs" />
     <Compile Include="Screens\MainScreen\XAML\MainScreenXAML.xaml.cs">
       <DependentUpon>MainScreenXAML.xaml</DependentUpon>
@@ -73,6 +75,7 @@
     <Compile Include="Shared\Profile.cs" />
     <Compile Include="Shared\ProfileSettings.cs" />
     <Compile Include="Shared\Tab.cs" />
+    <Compile Include="TinyMessenger.cs" />
     <Compile Include="Views\InfoCard.cs" />
     <Compile Include="XFormsApp.xaml.cs">
       <DependentUpon>XFormsApp.xaml</DependentUpon>

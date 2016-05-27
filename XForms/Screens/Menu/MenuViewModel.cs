@@ -5,7 +5,11 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Input;
+using TinyMessenger;
 using Xamarin.Forms;
+using XForms.Screens.FriendList;
+using XForms.Screens.Profile;
 using XForms.Shared;
 
 namespace XForms.Screens.Menu
@@ -24,6 +28,8 @@ namespace XForms.Screens.Menu
 
 		public string LoggedInUser { get; set; }
 
+        public Command<CustomMenu> ItemSelectedCommand { get; set; }
+        
         public MenuViewModel()
         {
             Title = "Title";
@@ -34,36 +40,51 @@ namespace XForms.Screens.Menu
 
 			LoggedInUser = "Luis Nunez";
 
+            ItemSelectedCommand = new Command<CustomMenu>(OnItemSelected);
+
             Options = new List<CustomMenu>
             {
+                    new CustomMenu
+                    {
+                    Title = "Home",
+                    Screen = typeof(MainScreen)
+                    },
                    new CustomMenu
                    {
-                        Title = "Shop"
+                        Title = "Mi Friends",
+                        Screen = typeof(FriendListScreen)
                    },
                    new CustomMenu
                    {
-                        Title = "Activity"
+                        Title = "Mi Transactions",
+                        Screen = typeof(PaymentListScreen)
                    },
                    new CustomMenu
                    {
-                        Title = "Transfer"
-                   },
-                   new CustomMenu
-                   {
-                        Title = "Wallet"
-                   },
-                   new CustomMenu
-                   {
-                        Title = "Settings"
+                        Title = "Mi Profile",
+                        Screen = typeof(ProfileScreen)
                    }
             };
         }
-        
+
+        private void OnItemSelected(CustomMenu menu)
+        {
+            if (menu == null)
+                return;
+
+            XFormsApp.Messenger.Publish(new NavigateToArgument
+            {
+                Screen = menu.Screen
+            });
+
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
     }
 }

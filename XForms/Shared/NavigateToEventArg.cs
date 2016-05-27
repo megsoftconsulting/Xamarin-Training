@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace XForms.Shared
 {
-    public class CustomMenu
+    public class NavigateToEventArg : EventArgs
     {
-        public string Title { get; set; }
-
-        public Type Screen { get; set; }
+        public Type NextScreen { get; set; }
         
     }
 }

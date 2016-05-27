@@ -5,6 +5,7 @@ using System.Reflection.Emit;
 using System.Text;
 
 using Xamarin.Forms;
+using XForms.Shared;
 
 namespace XForms.Screens.Menu
 {
@@ -13,10 +14,9 @@ namespace XForms.Screens.Menu
         public MenuScreen()
         {
             Content = CreateContent();
-
+            
             BindingContext = new MenuViewModel();
         }
-
         private View CreateContent()
         {
             this.SetBinding<MenuViewModel>(TitleProperty, m => m.Title);
@@ -83,13 +83,20 @@ namespace XForms.Screens.Menu
                 SeparatorColor = Color.Transparent,
                 SeparatorVisibility = SeparatorVisibility.None,
                 RowHeight = 55,
-				BackgroundColor = Color.Black.MultiplyAlpha(0.6),
+				BackgroundColor = Color.Black,
 				VerticalOptions = LayoutOptions.FillAndExpand
             };
 			listView.ItemSelected += (sender, e) => {
-				((ListView)sender).SelectedItem = null;
-			};
 
+                if (listView.SelectedItem == null)
+                    return;
+                else
+                {
+                    ((MenuViewModel)BindingContext).ItemSelectedCommand.Execute((CustomMenu)e.SelectedItem);
+                }
+                listView.SelectedItem = null;
+            };
+            
             listView.SetBinding<MenuViewModel>(ListView.ItemsSourceProperty, m => m.Options);
             listView.SetBinding<MenuViewModel>(ListView.SelectedItemProperty, m => m.SelectedOption);
 
@@ -105,3 +112,4 @@ namespace XForms.Screens.Menu
         }
     }
 }
+

@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using TinyMessenger;
+using Xamarin.Forms;
+using XForms.CodeBehind;
 using XForms.Screens.FriendList;
 using XForms.Screens.FriendList.XAML;
 using XForms.Screens.Profile;
@@ -8,11 +10,15 @@ namespace XForms
 {
 	public partial class XFormsApp : Application
 	{
+        public static ITinyMessengerHub Messenger { get; private set; }
+
 		public XFormsApp ()
 		{
 			InitializeComponent ();
 
-			MainPage = new NavigationPage(new ProfileScreen());
+            Messenger = new TinyMessengerHub();
+
+			MainPage = new NavigationPage(new LoginScreen());
 		}
 	}
 }
