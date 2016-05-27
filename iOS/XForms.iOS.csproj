@@ -132,6 +132,7 @@
     <BundleResource Include="Resources\request%402x.png" />
     <BundleResource Include="Resources\background%402x.png" />
     <BundleResource Include="Resources\logo%402x.png" />
+    <BundleResource Include="Resources\add%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\drawer%402x.png" />

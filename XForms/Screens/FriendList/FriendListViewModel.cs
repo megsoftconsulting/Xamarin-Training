@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace XForms.Screens.FriendList
 {
@@ -13,11 +15,22 @@ namespace XForms.Screens.FriendList
         public event PropertyChangedEventHandler PropertyChanged;
 
         public List<Person> Friends { get; set; }
+
+		public string AddItemIcon { get; set; }
+
         public string Title { get; set; }
+
+		public ICommand AddItemCommand { get; set; }
+
+		public event EventHandler NavigateTo;
 
         public FriendListViewModel()
         {
             Title = "Friend List";
+
+			AddItemIcon = "add";
+
+			AddItemCommand = new Command(OnAddItem);
 
             Friends = new List<Person>
             {
@@ -46,10 +59,22 @@ namespace XForms.Screens.FriendList
             };
             
         }
+
+		void OnAddItem ()
+		{
+			OnNavigateTo(null);
+		}
         
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+		protected virtual void OnNavigateTo (EventArgs e)
+		{
+			var handler = NavigateTo;
+			if (handler != null)
+				handler (this, e);
+		}
     }
 }

@@ -10,12 +10,28 @@ namespace XForms.Screens.FriendList
         {
             Content = CreateContent();
 
-            BindingContext = new FriendListViewModel();
+			var vm = new FriendListViewModel();
+
+			vm.NavigateTo += OnNavigateTo;
+
+			BindingContext = vm;
+        }
+
+        void OnNavigateTo (object sender, System.EventArgs e)
+        {
+			
         }
 
         private View CreateContent()
         {
             this.SetBinding<FriendListViewModel>(TitleProperty, m => m.Title);
+
+			var addItem = new ToolbarItem();
+
+			addItem.SetBinding<FriendListViewModel>(ToolbarItem.IconProperty, m => m.AddItemIcon);
+			addItem.SetBinding<FriendListViewModel>(ToolbarItem.CommandProperty, m => m.AddItemCommand);
+
+			ToolbarItems.Add(addItem);
 
             var listView = new ListView
             {
