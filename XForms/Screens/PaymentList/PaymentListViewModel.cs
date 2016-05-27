@@ -2,6 +2,8 @@
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace XForms
 {
@@ -11,9 +13,15 @@ namespace XForms
 
 	    public string Title { get; set; }
 
+		public ICommand SelectedCommand { get; set; }
+
+		public event EventHandler NavigateToEvent;
+
 	    public PaymentListViewModel ()
 	    {
 	        Title = "My Transactions";
+
+			SelectedCommand = new Command(OnSelected);
 
             Payments = new List<GroupOfPayment>
 			{
@@ -57,6 +65,18 @@ namespace XForms
 			};
 		}
 
+		void OnSelected ()
+		{
+			OnNavigateToEvent(null);
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnNavigateToEvent (EventArgs e)
+		{
+			var handler = NavigateToEvent;
+			if (handler != null)
+				handler (this, e);
+		}
 	}
 }

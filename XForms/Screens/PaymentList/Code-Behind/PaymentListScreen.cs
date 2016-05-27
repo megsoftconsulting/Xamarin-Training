@@ -1,15 +1,27 @@
 ﻿using System;
 using Xamarin.Forms;
+using XForms.Screens.TransactionDetail;
 
 namespace XForms
 {
 	public class PaymentListScreen : ContentPage
 	{
+		PaymentListViewModel _viewModel;
+
 		public PaymentListScreen ()
 		{
 			Content = CreateContent();
 
-			BindingContext = new PaymentListViewModel();
+			_viewModel = new PaymentListViewModel ();
+
+			_viewModel.NavigateToEvent += OnNavigateTo;
+
+			BindingContext = _viewModel;
+		}
+
+		void OnNavigateTo (object sender, EventArgs e)
+		{
+			Navigation.PushAsync(new TransactionDetailScreen());
 		}
 
 		View CreateContent ()
@@ -25,6 +37,17 @@ namespace XForms
 				IsGroupingEnabled = true,
 				GroupDisplayBinding = new Binding("Text", BindingMode.Default, new DateConverter()),
 				GroupHeaderTemplate = null
+			};
+
+			listView.ItemTapped += (object sender, ItemTappedEventArgs e) => {
+
+				if (e.Item != null)
+				{
+					_viewModel.SelectedCommand.Execute(null);
+				}
+
+				((ListView)sender).SelectedItem = null; 
+
 			};
 
 			listView.SetBinding<PaymentListViewModel>(ListView.ItemsSourceProperty, m => m.Payments);

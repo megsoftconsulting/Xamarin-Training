@@ -15,8 +15,8 @@ namespace XForms.Screens.FriendList
 
             var image = new CircleImage
             {
-                WidthRequest = 64,
-                HeightRequest = 64,
+                WidthRequest = 48,
+                HeightRequest = 48,
                 Aspect = Aspect.AspectFill,
                 HorizontalOptions = LayoutOptions.Start
             };

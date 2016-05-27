@@ -11,10 +11,12 @@
   </ContentPage.Resources>
 
   <ListView
+  x:Name="listView"
 RowHeight="70"
 SeparatorVisibility="None"
 SeparatorColor="Transparent"
 IsGroupingEnabled="true"
+ItemTapped="OnItemTapped"
 ItemsSource="{Binding Payments}"
 GroupDisplayBinding="{Binding Text, Converter={StaticResource DateConverter}}">
 
