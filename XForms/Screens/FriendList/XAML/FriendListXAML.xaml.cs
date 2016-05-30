@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
+using XForms.Screens.AddFriend;
 
 namespace XForms.Screens.FriendList.XAML
 {
@@ -14,7 +10,16 @@ namespace XForms.Screens.FriendList.XAML
         {
             InitializeComponent();
             
-            BindingContext = new FriendListViewModel();
+            var vm = new FriendListViewModel();
+
+            vm.NavigateTo += OnNavigateTo;
+
+            BindingContext = vm;
+        }
+
+        private void OnNavigateTo(object sender, EventArgs eventArgs)
+        {
+            Navigation.PushAsync(new AddFriendScreen());
         }
 
         private void OnItemTapped(object sender, ItemTappedEventArgs e)

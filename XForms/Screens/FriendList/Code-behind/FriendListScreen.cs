@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using XForms.Screens.AddFriend;
 using XForms.Screens.Profile;
 using XForms.Screens.Profile.XAML;
 
@@ -19,7 +20,7 @@ namespace XForms.Screens.FriendList
 
         void OnNavigateTo (object sender, System.EventArgs e)
         {
-			
+            Navigation.PushAsync(new AddFriendScreen());
         }
 
         private View CreateContent()
@@ -28,7 +29,7 @@ namespace XForms.Screens.FriendList
 
 			var addItem = new ToolbarItem();
 
-			addItem.SetBinding<FriendListViewModel>(ToolbarItem.IconProperty, m => m.AddItemIcon);
+			addItem.SetBinding<FriendListViewModel>(ToolbarItem.TextProperty, m => m.AddItemTitle);
 			addItem.SetBinding<FriendListViewModel>(ToolbarItem.CommandProperty, m => m.AddItemCommand);
 
 			ToolbarItems.Add(addItem);

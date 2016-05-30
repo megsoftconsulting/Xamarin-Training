@@ -5,6 +5,13 @@
              x:Class="XForms.Screens.FriendList.XAML.FriendListXaml"
              Title="{Binding Title}">
   
+<ContentPage.ToolbarItems>
+  <ToolbarItem
+    Text="{Binding AddItemTitle}"
+    Command="{Binding AddItemCommand}"/>
+  
+</ContentPage.ToolbarItems>
+
         <ListView VerticalOptions = "FillAndExpand"
                 HasUnevenRows = "true"
                 SeparatorVisibility = "None"

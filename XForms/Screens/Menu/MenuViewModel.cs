@@ -9,6 +9,7 @@ using System.Windows.Input;
 using TinyMessenger;
 using Xamarin.Forms;
 using XForms.Screens.FriendList;
+using XForms.Screens.FriendList.XAML;
 using XForms.Screens.Profile;
 using XForms.Shared;
 
@@ -53,7 +54,7 @@ namespace XForms.Screens.Menu
                    new CustomMenu
                    {
                         Title = "Mi Friends",
-                        Screen = typeof(FriendListScreen),
+                        Screen = typeof(FriendListXaml),
                     Icon = "friends"
                    },
                    new CustomMenu

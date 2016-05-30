@@ -16,8 +16,8 @@ namespace XForms.Screens.FriendList
 
         public List<Person> Friends { get; set; }
 
-		public string AddItemIcon { get; set; }
-
+		public string AddItemTitle { get; set; }
+        
         public string Title { get; set; }
 
 		public ICommand AddItemCommand { get; set; }
@@ -28,7 +28,7 @@ namespace XForms.Screens.FriendList
         {
             Title = "Friend List";
 
-			AddItemIcon = "add";
+			AddItemTitle = "Add";
 
 			AddItemCommand = new Command(OnAddItem);
 
