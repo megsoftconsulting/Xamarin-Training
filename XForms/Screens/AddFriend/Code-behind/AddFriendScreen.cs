@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Linq.Expressions;
+using Xamarin.Forms;
 using XForms.Views;
 
 namespace XForms.Screens.AddFriend
@@ -18,27 +20,28 @@ namespace XForms.Screens.AddFriend
 
             this.SetBinding<AddFriendViewModel>(BackgroundColorProperty, m => m.Background);
             
-            var firstName = CreateDash("Name", "Pablo");
+            var firstName = CreateDash(m => m.FirstName, m => m.FirstNameHeader);
 
-            var givenName = CreateDash("Given name", "Hoyiat");
+            var givenName = CreateDash(m => m.GivenName, m => m.GivenNameHeader);
 
-            var address = CreateDash("Address line 1", "Billing Address");
+            var address = CreateDash(m => m.Address, m => m.AddressHeader);
 
-            var city = CreateDash("City", "New York");
+            var city = CreateDash(m => m.City, m => m.CityHeader);
 
-            var phoneNumber = CreateDash("Phone number", "1-929-495-381");
+            var phoneNumber = CreateDash(m => m.PhoneNumber, m => m.PhoneNumberHeader);
 
-            var email = CreateDash("MiPal", "luis@mipal.com");
+            var email = CreateDash(m => m.Email, m => m.EmailHeader);
 
             var saveButton = new Button
             {
                 TextColor = Color.White,
                 FontSize = 16,
                 FontAttributes = FontAttributes.Bold,
-                Text = "Save",
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
                 VerticalOptions = LayoutOptions.CenterAndExpand
             };
+
+            saveButton.SetBinding<AddFriendViewModel>(Button.TextProperty, m => m.SaveText);
 
             var saveButtonLayout = new StackLayout
             {
@@ -73,26 +76,29 @@ namespace XForms.Screens.AddFriend
             };
         }
 
-        private View CreateDash(string title, string hint)
+        private View CreateDash(Expression<Func<AddFriendViewModel, object>> title,
+            Expression<Func<AddFriendViewModel, object>> hint)
         {
             var tit = new Label
             {
                 BackgroundColor = Color.Transparent,
                 TextColor = Color.Black,
-                Text = title,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 HorizontalOptions = LayoutOptions.Start
             };
 
+            tit.SetBinding(Label.TextProperty, title);
+
             var hin = new LineEntry
             {
                 TextColor = Color.Gray,
-                Placeholder = hint,
                 PlaceholderColor = Color.Gray,
                 VerticalOptions = LayoutOptions.CenterAndExpand,
                 BorderColor = Color.White,
                 HorizontalOptions = LayoutOptions.FillAndExpand
             };
+
+            hin.SetBinding(Entry.PlaceholderProperty, hint);
 
             return new StackLayout
             {

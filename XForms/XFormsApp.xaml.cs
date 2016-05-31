@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using XForms.CodeBehind;
 using XForms.Screens.AddFriend;
+using XForms.Screens.AddFriend.XAML;
 using XForms.Screens.FriendList;
 using XForms.Screens.FriendList.XAML;
 using XForms.Screens.Profile;

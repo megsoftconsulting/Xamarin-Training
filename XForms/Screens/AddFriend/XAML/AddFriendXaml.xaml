@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:XForms.Views;assembly=XForms"
+             Title="{Binding Title}"
+             BackgroundColor="{Binding Background}"
+             x:Class="XForms.Screens.AddFriend.XAML.AddFriendXaml">
+  
+  
+  <StackLayout>
+    
+    <StackLayout
+      VerticalOptions="FillAndExpand">
+      
+      <StackLayout
+        Spacing="14"
+        Padding="20"
+        Orientation="Horizontal"
+        BackgroundColor="White">
+      
+    <Label
+        BackgroundColor="Transparent"
+        TextColor="Black"
+        Text="{Binding FirstNameHeader}"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Start"/>
+        
+      <views:LineEntry
+        TextColor="Gray"
+        PlaceholderColor="Gray"
+        VerticalOptions="CenterAndExpand"
+        BorderColor="White"
+        HorizontalOptions="FillAndExpand"/>
+    
+    </StackLayout>
+  
+
+
+
+<StackLayout
+        Spacing="14"
+        Padding="20"
+        Orientation="Horizontal"
+        BackgroundColor="White">
+      
+    <Label
+        BackgroundColor="Transparent"
+        TextColor="Black"
+        Text="{Binding GivenNameHeader}"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Start"/>
+        
+      <views:LineEntry
+        TextColor="Gray"
+        PlaceholderColor="Gray"
+        VerticalOptions="CenterAndExpand"
+        BorderColor="White"
+        HorizontalOptions="FillAndExpand"/>
+    
+    </StackLayout>
+
+
+
+<StackLayout
+        Spacing="14"
+        Padding="20"
+        Orientation="Horizontal"
+        BackgroundColor="White">
+      
+    <Label
+        BackgroundColor="Transparent"
+        TextColor="Black"
+        Text="{Binding AddressHeader}"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Start"/>
+        
+      <views:LineEntry
+        TextColor="Gray"
+        PlaceholderColor="Gray"
+        VerticalOptions="CenterAndExpand"
+        BorderColor="White"
+        HorizontalOptions="FillAndExpand"/>
+    
+    </StackLayout>
+
+
+
+
+<StackLayout
+        Spacing="14"
+        Padding="20"
+        Orientation="Horizontal"
+        BackgroundColor="White">
+      
+    <Label
+        BackgroundColor="Transparent"
+        TextColor="Black"
+        Text="{Binding CityHeader}"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Start"/>
+        
+      <views:LineEntry
+        TextColor="Gray"
+        PlaceholderColor="Gray"
+        VerticalOptions="CenterAndExpand"
+        BorderColor="White"
+        HorizontalOptions="FillAndExpand"/>
+    
+    </StackLayout>
+
+
+      <StackLayout
+        Spacing="14"
+        Padding="20"
+        Orientation="Horizontal"
+        BackgroundColor="White">
+      
+    <Label
+        BackgroundColor="Transparent"
+        TextColor="Black"
+        Text="{Binding PhoneNumberHeader}"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Start"/>
+        
+      <views:LineEntry
+        TextColor="Gray"
+        PlaceholderColor="Gray"
+        VerticalOptions="CenterAndExpand"
+        BorderColor="White"
+        HorizontalOptions="FillAndExpand"/>
+    
+    </StackLayout>
+  
+
+
+<StackLayout
+        Spacing="14"
+        Padding="20"
+        Orientation="Horizontal"
+        BackgroundColor="White">
+      
+    <Label
+        BackgroundColor="Transparent"
+        TextColor="Black"
+        Text="{Binding EmailHeader}"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Start"/>
+        
+      <views:LineEntry
+        TextColor="Gray"
+        PlaceholderColor="Gray"
+        VerticalOptions="CenterAndExpand"
+        BorderColor="White"
+        HorizontalOptions="FillAndExpand"/>
+    
+    </StackLayout>
+  
+    </StackLayout>
+    
+  <StackLayout
+    BackgroundColor="#3eb5e5"
+    HorizontalOptions="FillAndExpand"
+    VerticalOptions="End">
+  
+    <Button
+      TextColor="White"
+      FontSize="16"
+      FontAttributes="Bold"
+      Text="{Binding SaveText}"
+      HorizontalOptions="CenterAndExpand"
+      VerticalOptions="CenterAndExpand"/>
+  
+  </StackLayout>
+    
+  </StackLayout>
+  
+  
+  
+</ContentPage>
