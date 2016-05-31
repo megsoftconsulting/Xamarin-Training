@@ -54,7 +54,7 @@ namespace XForms.Screens.Menu
                    new CustomMenu
                    {
                         Title = "Mi Friends",
-                        Screen = typeof(FriendListXaml),
+                        Screen = typeof(FriendListScreen),
                     Icon = "friends"
                    },
                    new CustomMenu

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -14,7 +15,7 @@ namespace XForms.Screens.FriendList
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public List<Person> Friends { get; set; }
+        public ObservableCollection<Person> Friends { get; set; }
 
 		public string AddItemTitle { get; set; }
         
@@ -22,7 +23,11 @@ namespace XForms.Screens.FriendList
 
 		public ICommand AddItemCommand { get; set; }
 
-		public event EventHandler NavigateTo;
+        public string DeleteItemText { get; set; }
+
+        public ICommand DeleteItemCommand { get; set; }
+
+        public event EventHandler NavigateTo;
 
         public FriendListViewModel()
         {
@@ -30,9 +35,13 @@ namespace XForms.Screens.FriendList
 
 			AddItemTitle = "Add";
 
-			AddItemCommand = new Command(OnAddItem);
+            DeleteItemText = "Delete";
 
-            Friends = new List<Person>
+            DeleteItemCommand = new Command<object>(OnDeleteItem);
+
+            AddItemCommand = new Command(OnAddItem);
+
+            Friends = new ObservableCollection<Person>
             {
                 new Person
                 {
@@ -59,8 +68,13 @@ namespace XForms.Screens.FriendList
             };
             
         }
+        
+        private void OnDeleteItem(object obj)
+        {
+            Friends.Remove(obj as Person);
+        }
 
-		void OnAddItem ()
+        void OnAddItem ()
 		{
 			OnNavigateTo(null);
 		}

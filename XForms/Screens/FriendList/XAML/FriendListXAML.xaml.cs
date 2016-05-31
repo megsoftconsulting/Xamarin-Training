@@ -15,6 +15,11 @@ namespace XForms.Screens.FriendList.XAML
             vm.NavigateTo += OnNavigateTo;
 
             BindingContext = vm;
+            
+            ListView.ItemTemplate = new DataTemplate(()=>new FriendListViewCell()
+            {
+                Option1Command = vm.DeleteItemCommand
+            });
         }
 
         private void OnNavigateTo(object sender, EventArgs eventArgs)

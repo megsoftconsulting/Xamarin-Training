@@ -1,3 +1,4 @@
+using System.Windows.Input;
 using ImageCircle.Forms.Plugin.Abstractions;
 using Xamarin.Forms;
 
@@ -5,11 +6,27 @@ namespace XForms.Screens.FriendList
 {
     public class FriendListViewCell : ViewCell
     {
+        public ICommand Option1Command { get; set; }
+
         public FriendListViewCell()
         {
             this.View = CreateContent();
+
+            CreateContextOptions();
         }
-        
+
+        private void CreateContextOptions()
+        {
+            var deleteAction = new MenuItem { Text = "Delete", IsDestructive = true };
+            
+            deleteAction.Clicked +=  (sender, e) => {
+
+                Option1Command.Execute(BindingContext);
+            };
+
+            ContextActions.Add(deleteAction);
+        }
+
         private View CreateContent()
         {
 

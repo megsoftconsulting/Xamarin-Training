@@ -7,15 +7,17 @@ namespace XForms.Screens.FriendList
 {
     public class FriendListScreen : ContentPage
     {
+        private readonly FriendListViewModel _vm;
+
         public FriendListScreen()
         {
             Content = CreateContent();
 
-			var vm = new FriendListViewModel();
+			_vm = new FriendListViewModel();
 
-			vm.NavigateTo += OnNavigateTo;
+            _vm.NavigateTo += OnNavigateTo;
 
-			BindingContext = vm;
+			BindingContext = _vm;
         }
 
         void OnNavigateTo (object sender, System.EventArgs e)
@@ -37,7 +39,10 @@ namespace XForms.Screens.FriendList
             var listView = new ListView
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                ItemTemplate = new DataTemplate(typeof(FriendListViewCell)),
+                ItemTemplate = new DataTemplate(() => new FriendListViewCell
+                {
+                    Option1Command = _vm.DeleteItemCommand
+                }),
                 HasUnevenRows = true,
                 SeparatorVisibility = SeparatorVisibility.None,
                 SeparatorColor = Color.Transparent

@@ -17,13 +17,8 @@
                 SeparatorVisibility = "None"
                 SeparatorColor = "Transparent"
                 ItemsSource="{Binding Friends}"
-                ItemTapped="OnItemTapped">
-          
-          <ListView.ItemTemplate>
-            <DataTemplate>
-              <friendList:FriendListViewCell/>
-            </DataTemplate>
-          </ListView.ItemTemplate>
+                ItemTapped="OnItemTapped"
+                  x:Name="ListView">
           
         </ListView>
   
