@@ -62,6 +62,7 @@
     <Compile Include="Screens\TransactionDetail\XAML\TransactionDetailScreenXAML.xaml.cs">
       <DependentUpon>TransactionDetailScreenXAML.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Screens\VirtualCards\Code-Behind\VirtualCardTemplate.cs" />
     <Compile Include="Shared\BankAccount.cs" />
     <Compile Include="Shared\CustomMenu.cs" />
     <Compile Include="Shared\NavigateToArgument.cs" />
@@ -167,5 +168,8 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Screens\VirtualCards\XAML\" />
   </ItemGroup>
 </Project>
