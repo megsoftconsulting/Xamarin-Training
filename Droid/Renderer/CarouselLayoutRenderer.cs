@@ -38,6 +38,8 @@ namespace CustomLayouts.Droid.Renderers
 
 		void ElementPropertyChanged(object sender, PropertyChangedEventArgs e) {
 			if (e.PropertyName == "Renderer") {
+				if(_scrollView == null)
+					return;
 				_scrollView = (HorizontalScrollView)typeof(ScrollViewRenderer)
 					.GetField ("hScrollView", BindingFlags.NonPublic | BindingFlags.Instance)
 					.GetValue (this);
@@ -109,6 +111,10 @@ namespace CustomLayouts.Droid.Renderers
 			if (_initialized) return;
 			_initialized = true;
 			var carouselLayout = (CarouselLayout)this.Element;
+
+			if(_scrollView == null)
+				return;
+
 			_scrollView.ScrollTo (carouselLayout.SelectedIndex * Width, 0);
 		}
 
