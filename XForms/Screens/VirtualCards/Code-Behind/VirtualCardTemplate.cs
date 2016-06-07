@@ -9,21 +9,17 @@ using Xamarin.Forms;
 
 namespace XForms.Screens.VirtualCards.Code_Behind
 {
-    public class VirtualCardTemplate : ContentPage
+    public class VirtualCardTemplate : StackLayout
     {
         public VirtualCardTemplate()
         {
-            Content = CreateContent();
+            this.Children.Add(CreateContent());
         }
 
         private View CreateContent()
         {
-            BackgroundColor = Color.Black;
-
             var layout = new RelativeLayout
             {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.Center,
                 BackgroundColor = Color.Transparent,
                 Children =
                 {
@@ -38,20 +34,13 @@ namespace XForms.Screens.VirtualCards.Code_Behind
                      }  ,
                         Constraint.RelativeToParent(p => 20),
                         Constraint.RelativeToParent(p => 40),
-                        Constraint.RelativeToParent(p => 400 - 120),
-                        Constraint.RelativeToParent(p => 400 - 80)
+                        Constraint.RelativeToParent(p => p.Width - 40),
+                        Constraint.RelativeToParent(p => p.Height - 80)
                     }
                 }
             };
-            
-            return new StackLayout
-            {
-                Padding = new Thickness(20,0,0,0),
-                Children =
-                {
-                    layout
-                }
-            };
+
+            return layout;
         }
 
         private View CreateCardContent()
@@ -106,7 +95,7 @@ namespace XForms.Screens.VirtualCards.Code_Behind
                     }
                 }
             };
-
+            
             var profile = new CircleImage
             {
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
@@ -129,8 +118,8 @@ namespace XForms.Screens.VirtualCards.Code_Behind
             {
                 VerticalOptions = LayoutOptions.End,
                 HorizontalOptions = LayoutOptions.CenterAndExpand,
-                WidthRequest = 90,
-                HeightRequest = 90,
+                WidthRequest = 80,
+                HeightRequest = 80,
                 Source = "http://qrcode.tec-it.com/API/QRCode?data=QR-Code+Generator+by+TEC-IT"
             };
 

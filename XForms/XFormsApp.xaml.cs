@@ -7,6 +7,7 @@ using XForms.Screens.FriendList;
 using XForms.Screens.FriendList.XAML;
 using XForms.Screens.Profile;
 using XForms.Screens.Profile.XAML;
+using XForms.Screens.VirtualCards.Code_Behind;
 
 namespace XForms
 {
@@ -19,8 +20,8 @@ namespace XForms
 			InitializeComponent ();
 
             Messenger = new TinyMessengerHub();
-
-			MainPage = new NavigationPage(new LoginScreen());
+            
+			MainPage = new NavigationPage(new VirtualCardScreen());
 		}
 	}
 }
