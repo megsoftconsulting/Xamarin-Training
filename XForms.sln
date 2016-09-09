@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XForms", "XForms\XForms.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XForms.iOS", "iOS\XForms.iOS.csproj", "{BD5BD8F1-FC76-476C-BEE0-F496F81CBAF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XForms.Droid", "Droid\XForms.Droid.csproj", "{F56DC7F5-3DC9-4B06-859B-08411024949B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyPal.Droid", "Droid\MyPal.Droid.csproj", "{F56DC7F5-3DC9-4B06-859B-08411024949B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

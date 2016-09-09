@@ -20,33 +20,33 @@ namespace XForms.Screens.Profile.XAML
 
         public ProfileScreenViewModel()
         {
-            Title = "MiProfile";
+            Title = "My Profile";
 
-            Picture = "https://pbs.twimg.com/profile_images/378800000532546226/dbe5f0727b69487016ffd67a6689e75a.jpeg";
+            Picture = "http://claudiosanchez.net/wp-content/uploads/2016/08/Claudio.jpg";
             
-            Header = "Luis Alberto Pena Nunez";
+            Header = "Claudio Sanchez";
 
             ProfileSettings = new ObservableCollection<ProfileSettings>
             {
                 new ProfileSettings
                 {
                     Title = "Email",
-                    Subtitle = "luis@mipal.com"
+                    Subtitle = "claudio@megsoftconsulting.com"
                 },
                 new ProfileSettings
                 {
                     Title = "Phone Number",
-                    Subtitle = "612-242-6378"
+                    Subtitle = "240-999-5555"
                 },
                 new ProfileSettings
                 {
                     Title = "Address",
-                    Subtitle = "6876 Buttonwood Drive Hilliard, OH 43026"
+                    Subtitle = "1121 Annapolis Rd Suite 171, Odenton, MD 21113"
                 },
                 new ProfileSettings
                 {
-                    Title = "Bank Entity",
-                    Subtitle = "Banko (****9201)"
+                    Title = "Bank",
+                    Subtitle = "New Bank (****9201)"
                 }
             };
         }

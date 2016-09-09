@@ -39,7 +39,7 @@ namespace XForms.Screens.Menu
 
 			Background = "background";
 
-			LoggedInUser = "Luis Nunez";
+			LoggedInUser = "Claudio Sanchez";
 
             ItemSelectedCommand = new Command<CustomMenu>(OnItemSelected);
 
@@ -53,19 +53,19 @@ namespace XForms.Screens.Menu
                     },
                    new CustomMenu
                    {
-                        Title = "Mi Friends",
+                        Title = "My Friends",
                         Screen = typeof(FriendListScreen),
                     Icon = "friends"
                    },
                    new CustomMenu
                    {
-                        Title = "Mi Transactions",
+                        Title = "My Transactions",
                         Screen = typeof(PaymentListScreen),
                     Icon = "transaction"
                    },
                    new CustomMenu
                    {
-                        Title = "Mi Profile",
+                        Title = "My Profile",
                         Screen = typeof(ProfileScreen),
                     Icon = "profile"
                    }

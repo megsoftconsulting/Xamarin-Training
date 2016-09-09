@@ -17,7 +17,7 @@ namespace XForms.Screens.VirtualCards.Code_Behind
             {
                 new object { },
                 new object { },
-                new object { }
+
             };
         }
 

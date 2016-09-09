@@ -17,7 +17,7 @@ namespace XForms.Screens.Master
 
 			this.SetBinding<AppDetailViewModel>(BackgroundColorProperty, m => m.BackgroundColor);
 
-			Detail = new CustomNavigationPage(new MainScreenXaml());
+			Detail = new CustomNavigationPage(new MainScreen());
 
             Master = new MenuScreen();
 

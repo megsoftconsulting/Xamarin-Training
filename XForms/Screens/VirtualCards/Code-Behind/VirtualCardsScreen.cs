@@ -15,6 +15,7 @@ namespace XForms.Screens.VirtualCards.Code_Behind
     {
         public VirtualCardScreen()
         {
+            Title = "Virtual Cards";
             Content = CreateContent();
 
             BindingContext = new VirtualCardViewModel();
@@ -30,18 +31,17 @@ namespace XForms.Screens.VirtualCards.Code_Behind
 
         private View CreateContent()
         {
-            var publicityCarousel = new CarouselLayout
-            {
+            var publicityCarousel = new CarouselLayout {
                 BackgroundColor = Color.FromHex("f6f6f6"),
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                VerticalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.Fill,
                 IndicatorStyle = CarouselLayout.IndicatorStyleEnum.Dots,
                 ItemTemplate = new DataTemplate(typeof(VirtualCardTemplate))
             };
             publicityCarousel.SetBinding<VirtualCardViewModel>(CarouselLayout.ItemsSourceProperty, m => m.Property);
             publicityCarousel.SetBinding<VirtualCardViewModel>(CarouselLayout.SelectedItemProperty, m => m.Selected);
 
-            var pagerIndicator = new PagerIndicatorDots() { DotSize = 8, DotColor = Color.White };
+            var pagerIndicator = new PagerIndicatorDots() { DotSize = 8, DotColor = Color.Gray };
 
             pagerIndicator.SetBinding<VirtualCardViewModel>(PagerIndicatorDots.ItemsSourceProperty, m => m.Property);
 
@@ -56,7 +56,7 @@ namespace XForms.Screens.VirtualCards.Code_Behind
                         Constraint.RelativeToParent(p => 0),
                         Constraint.RelativeToParent(p => 0),
                         Constraint.RelativeToParent(p => p.Width),
-                        Constraint.RelativeToParent(p => p.Height)
+                        Constraint.RelativeToParent(p => p.Height -50)
                     },
                     {
                         pagerIndicator,

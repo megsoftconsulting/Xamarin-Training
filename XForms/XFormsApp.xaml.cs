@@ -1,12 +1,7 @@
 ﻿using TinyMessenger;
 using Xamarin.Forms;
+using XForms.Screens.Master;
 using XForms.CodeBehind;
-using XForms.Screens.AddFriend;
-using XForms.Screens.AddFriend.XAML;
-using XForms.Screens.FriendList;
-using XForms.Screens.FriendList.XAML;
-using XForms.Screens.Profile;
-using XForms.Screens.Profile.XAML;
 using XForms.Screens.VirtualCards.Code_Behind;
 
 namespace XForms
@@ -20,8 +15,12 @@ namespace XForms
 			InitializeComponent ();
 
             Messenger = new TinyMessengerHub();
-            
-			MainPage = new NavigationPage(new VirtualCardScreen());
+
+           // var shell = new LoginScreen ();
+           // MainPage = shell;
+
+            var nav =new VirtualCardScreen ();
+            MainPage = nav;
 		}
 	}
 }

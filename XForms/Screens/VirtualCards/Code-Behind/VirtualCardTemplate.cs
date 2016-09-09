@@ -32,10 +32,10 @@ namespace XForms.Screens.VirtualCards.Code_Behind
                                  CreateCardContent()
                          }
                      }  ,
-                        Constraint.RelativeToParent(p => 20),
-                        Constraint.RelativeToParent(p => 40),
+                        Constraint.RelativeToParent(p => 20),  // Y
+                        Constraint.RelativeToParent(p => 10),  // X
                         Constraint.RelativeToParent(p => p.Width - 40),
-                        Constraint.RelativeToParent(p => p.Height - 80)
+                        Constraint.RelativeToParent(p => p.Height - 40)
                     }
                 }
             };
@@ -52,10 +52,11 @@ namespace XForms.Screens.VirtualCards.Code_Behind
 
             var logo = new Image
             {
-                Source = "http://bower.io/img/bower-logo.png",
+                Source = "http://www.megsoftconsulting.com/newwpsite/wp-content/uploads/2015/11/Megsoft-logo-sizenew-blanco.png",
+                IsOpaque = true,
                 Aspect = Aspect.AspectFit,
-                WidthRequest = 40,
-                HeightRequest = 40,
+                WidthRequest = 80,
+                //HeightRequest = 40,
                 HorizontalOptions = LayoutOptions.StartAndExpand,
                 VerticalOptions = LayoutOptions.Center
             };
@@ -98,17 +99,19 @@ namespace XForms.Screens.VirtualCards.Code_Behind
             
             var profile = new CircleImage
             {
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.StartAndExpand,
                 WidthRequest = 80,
                 HeightRequest = 80,
                 BorderColor = Color.Transparent,
-                Source = "https://scontent-ord1-1.xx.fbcdn.net/v/t1.0-9/13321740_809776965833621_3813115539637266533_n.jpg?oh=dfdc55d25b718573b5046f7b7c5dd5fc&oe=57D952DA"
+                Source = "http://claudiosanchez.net/wp-content/uploads/2016/08/Claudio.jpg",
+                IsOpaque = true
+                    
             };
 
             var memberName = new Label
             {
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                Text = "Luis Nunez",
+                HorizontalOptions = LayoutOptions.StartAndExpand,
+                Text = "Claudio Sanchez",
                 TextColor = Color.FromHex("032972"),
                 FontSize = 18,
                 FontAttributes = FontAttributes.Bold
@@ -117,16 +120,18 @@ namespace XForms.Screens.VirtualCards.Code_Behind
             var qrCode = new Image
             {
                 VerticalOptions = LayoutOptions.End,
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                HorizontalOptions = LayoutOptions.EndAndExpand,
                 WidthRequest = 80,
                 HeightRequest = 80,
-                Source = "http://qrcode.tec-it.com/API/QRCode?data=QR-Code+Generator+by+TEC-IT"
+                Source = "http://qrcode.tec-it.com/API/QRCode?data=QR-Code+Generator+by+TEC-IT",
+                IsOpaque = true
             };
 
             var bodyContent = new StackLayout
             {
-                Spacing = 40,
-                Padding = 10,
+                Spacing = 0,
+                Padding = 10, 
+                Orientation = StackOrientation.Horizontal,
                 Children =
                 {
                     new StackLayout
